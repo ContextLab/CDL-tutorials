@@ -1,0 +1,5 @@
+pandas>=0.18.0
+matplotlib>=1.5.1
+numpy>=1.10.4
+
+to install pandas follow the instructions here: https://pandas.pydata.org/pandas-docs/stable/install.html
