@@ -16,7 +16,7 @@ After checking out both of these notebooks try to tackle some of the tutorials (
 If you are looking to solve a particular problem perhaps the ["rolling apply"](https://github.com/ContextLab/Tutorials/blob/master/PANDAS/Notebooks/Rolling%20Apply%20Tutorial%20.ipynb), ["PANDAS Math"](https://github.com/ContextLab/Tutorials/blob/master/PANDAS/Notebooks/PANDAS%20Math.ipynb), or ["NaNs Problem"](https://github.com/ContextLab/Tutorials/blob/master/PANDAS/Notebooks/NaNs%20Problem.ipynb) might be the right place for you to start.
 
 
-**Stuck? Found a Bug? **
+**Stuck? Found a Bug?**
 
 If you are experiencing problems please let us know. You can join the #computrons slack channel and ask questions there! If you'd like to help make this tutorial better we ask that you fork first, make your changes and then submit a pull request. Instructions on how to do that [here](https://gist.github.com/Chaser324/ce0505fbed06b947d962). We really appreciate the time you take doing this to make these tutorials better for others.
 
