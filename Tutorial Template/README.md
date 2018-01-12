@@ -12,7 +12,7 @@ A complete tutorial:
 
 # Template Tutorial README 
 
-This tutorial is designed to be a starting point for other tutorials in this repo. It is recommended that you clone this tutorial and then use it as a launching point for your tutorial. There are three main components of the tutorial Notebooks, Data, and Slides. In the Data folder are two files. One creating data which saves as a .npy to the which is also stored in the folder. The Notebook folder contains an example Jupyter notebook that analyzes data from the Data folder. Finally the Slides folder contains an example slide show that walks through this tutorial and the source.tex to make your own presentation  
+This tutorial is designed to be a starting point for other tutorials in this repo. It is recommended that you clone this tutorial and then use it as a launching point for your tutorial. There are three main components of the tutorial Notebooks, Data, and Slides. In the Data folder are two files. One creating data which saves as a .npy to the which is also stored in the folder. The Notebook folder contains an example Jupyter notebook that analyzes data from the Data folder. Finally the Slides folder contains an example slide show that walks through this tutorial and the source.tex to make your own presentation.
 
 
 To be able to run through the notebooks in the tutorial first install the requirements using `pip install -r requirements.txt` After installing the requirements read through the slides, and then go through the notebook. 
