@@ -1,0 +1,122 @@
+\documentclass{beamer}
+%
+% Choose how your presentation looks.
+%
+% For more themes, color themes and font themes, see:
+% http://deic.uab.es/~iblanes/beamer_gallery/index_by_theme.html
+%
+\mode<presentation>
+{
+  \usetheme{default}      % or try Darmstadt, Madrid, Warsaw, ...
+  \usecolortheme{default} % or try albatross, beaver, crane, ...
+  \usefonttheme{default}  % or try serif, structurebold, ...
+  \setbeamertemplate{navigation symbols}{}
+  \setbeamertemplate{caption}[numbered]
+} 
+
+
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage{listings}
+\title[PANDAS Tutorial Presentation]{PANDAS Tutorial Presentation}
+\author{Emily}
+
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+% Uncomment these lines for an automatically generated outline.
+%\begin{frame}{Outline}
+%  \tableofcontents
+%\end{frame}
+
+\section{Introduction}
+
+\begin{frame}{Introduction}
+
+\begin{itemize}
+  \item This tutorial will guide you through the basics of PANDAS, a package that works in tandem with num.py and python
+  \item After completing this tutorial you should have a better understanding of the foundations of PANDAS
+  
+\end{itemize}
+
+
+\end{frame}
+
+\section{Some \LaTeX{} Examples}
+
+\subsection{How to use the template tutorial}
+
+\begin{frame}{How to use this tutorial}
+
+\begin{itemize}
+  \item Before starting the tutorial you should pip install the requirements.txt a
+  \item To get the most out of this tutorial start with the README, then these slides, then whichever notebooks are most relevant to your needs. 
+  \item One could either do the individual tutorials and walkthrough first, or if you are looking to solve a specific problem with  PANDAS, look to see if there is a notebook on that issue. 
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Graph}
+
+% Commands to include a figure:
+%need to go to Project-->files --> upload a new file can't upload from desktop or docs
+\begin{figure}
+\includegraphics[width=0.5\textwidth]{DF_example.png} 
+\caption{\label{fig:your-figure} Above is an example of a dataset being analyzed using PANDAS' describe feature.}
+\end{figure}
+
+\end{frame}{}
+
+\subsection{Code}
+
+\begin{frame}[fragile]{Code}
+
+Here is an example of code from the "Rolling Apply" notebook. Rolling apply is especially useful as it applies a function across a DataFrame or a series.  
+
+\begin{verbatim}
+def times_3 (x):
+    if x >4:
+        return x * 3
+    else:
+        return x)
+df3['A'].apply(times_3)
+
+\end{verbatim}
+
+\end{frame}
+
+\subsection{Summary}
+
+\begin{frame}{Summary}
+
+\begin{itemize}
+\item PANDAS can be used in the lab for manipulating data in many different ways   
+\item It has particular strengths in organizing and visualizing large sets of data 
+\item If you want to learn more about PANDAS here are some useful places to look:
+	\begin{itemize}
+    \item https://pandas.pydata.org
+    \item https://www.datacamp.com/community/blog/python-pandas-cheat-sheet
+	\end{itemize}
+\end{itemize}
+
+\end{frame}
+
+\end{document}
+
+%\How to make a table
+%\begin{table}
+%\centering
+%\begin{tabular}{l|r}
+%Item & Quantity \\\hline
+%Widgets & 42 \\
+%Gadgets & 13
+%\end{tabular}
+%\caption{\label{tab:widgets}An example table.}
+%\end{table}
+
+
+
