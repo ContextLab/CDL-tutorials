@@ -22,9 +22,11 @@ After completing this tutorial, you should be able to move on to any other tutor
 ## Table of contents
 
 - [Requirements](https://github.com/ContextLab/Tutorials/blob/master/Tutorial%20Template/requirements.txt)- List of dependencies for this tutorial, able to be automatically installed via `pip`.
-- [Data](https://github.com/ContextLab/Tutorials/tree/master/Tutorial%20Template/Data)- The data we are analyzing in this tutorial comes from [here](https://pandas.pydata.org/pandas-docs/stable/index.html)
-  - [Example data creation](https://github.com/ContextLab/Tutorials/blob/master/Tutorial%20Template/Data/Example_Data_Creation.ipynb)- Notebook containing an example of how to create and save data
-  - [Saved data file](https://github.com/ContextLab/Tutorials/blob/master/Tutorial%20Template/Data/chirp.npy)- Npy file of the example dataset  
+- [Data](https://github.com/ContextLab/Tutorials/tree/master/Tutorial%20Template/Data) 
+   - [Example data creation](https://github.com/ContextLab/Tutorials/blob/master/Tutorial%20Template/Data/Example_Data_Creation.ipynb)- Notebook containing an example of how to create and save data
+  - [chirp.npy](https://github.com/ContextLab/Tutorials/blob/master/Tutorial%20Template/Data/chirp.npy)- Npy file of the example dataset  
+  - [Downloading data example]()- example of how to download data from on line and source it in the text, data from [here](http://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_iris.html#sklearn.datasets.load_iris)
+  - [iris.npy]()- saved file of data created and analyzed in "Downloading data example"
 - [Notebooks](https://github.com/ContextLab/Tutorials/tree/master/Tutorial%20Template/Notebooks)- Folder containing Jupyter Notebooks
   - [Demo](https://github.com/ContextLab/Tutorials/blob/master/Tutorial%20Template/Notebooks/Demo.ipynb)- Analyzing the sample data
 - [Slides](https://github.com/ContextLab/Tutorials/tree/master/Tutorial%20Template/Slides)
