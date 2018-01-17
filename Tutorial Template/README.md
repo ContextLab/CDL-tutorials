@@ -22,7 +22,7 @@ After completing this tutorial, you should be able to move on to any other tutor
 ## Table of contents
 
 - [Requirements](https://github.com/ContextLab/Tutorials/blob/master/Tutorial%20Template/requirements.txt)- List of dependencies for this tutorial, able to be automatically installed via `pip`.
-- [Data](https://github.com/ContextLab/Tutorials/tree/master/Tutorial%20Template/Data)- The data we are analyzing in this tutorial comes from this [source](link here)
+- [Data](https://github.com/ContextLab/Tutorials/tree/master/Tutorial%20Template/Data)- The data we are analyzing in this tutorial comes from [here](https://pandas.pydata.org/pandas-docs/stable/index.html)
   - [Example data creation](https://github.com/ContextLab/Tutorials/blob/master/Tutorial%20Template/Data/Example_Data_Creation.ipynb)- Notebook containing an example of how to create and save data
   - [Saved data file](https://github.com/ContextLab/Tutorials/blob/master/Tutorial%20Template/Data/chirp.npy)- Npy file of the example dataset  
 - [Notebooks](https://github.com/ContextLab/Tutorials/tree/master/Tutorial%20Template/Notebooks)- Folder containing Jupyter Notebooks
