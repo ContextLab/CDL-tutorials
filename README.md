@@ -11,6 +11,6 @@ If you need help or if something is unclear join our slack's computrons channel 
 ## Care to contribute? Please do! ##
 Many of the packages we are making tutorials of are only possible due to open science and communication between programmers and aspirating developers. We hope that by creating these tutorials we make others more comfortable with these topics as well! If you noticed that you learn a different way than us or have an excellent example to share, please share it! 
 
-We ask that you fork first, make your changes and then submit a pull request. Instructions on how to do that [here](https://gist.github.com/Chaser324/ce0505fbed06b947d962). We really appreciate the time you take doing this to make these tutorials better for others.
+We ask that you fork first, make your changes and then submit a pull request. Instructions on how to do that [here](https://gist.github.com/Chaser324/ce0505fbed06b947d962). We also request that you program in python 3 and follow the [pep8 style](https://www.python.org/dev/peps/pep-0008/) when writing your code. We really appreciate the time you take doing this to make these tutorials better for others. 
 
 For a ful list of the packages we are working on and tutorials we are lookign to have in the future see our projects board [here.](https://github.com/ContextLab/Tutorials/projects/1?)
