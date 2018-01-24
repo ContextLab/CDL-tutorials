@@ -1,28 +1,55 @@
-This template folder is designed to be a guide for making the tutorials in this repository. The Contextual Dynamics Lab does ask that the guidelines outlined below appear in the tutorials added to this repo and other pages/files/tools are always welcome as well.
+# Docker
 
-A complete tutorial:
-  - contains a README with:
-      - what the tutorial is for, potential use cases, and how the tutorial is organized
-      - a list of the notebooks and datasets included in the tutorial with clickable links
-      - describes how to install the necessary dependencies for running the tutorials
-  - is self-contained:
-      - meaning that the module itself is sharable and doesn't reference other modules in the repo
-      - with the exception of referencing to other tutorials as potential prerequisites or next steps in a learning guide (i.e. "to do the Pandas tutorial, you should first do the Python tutorial" (with a clickable link to the python tutorial))
-          - please link these in the README or as you are referencing them 
+Docker is a tool that is designed to make it easier to create and run applications
+by using containers. A container is a virtual environment that allows a developer to
+package an application with all of the necessary ingredients (requirements) for
+it to run, and bundles it up into one portable package.  While simple in concept,
+this is a very powerful tool that allows you to create computing environments
+that can be replicated on most modern computers. Here are a few example use
+cases for a scientist:
+- A sharable computing environment so that all members of your lab have access
+to the same tools
+- An easily replicable experiment that can be run from anywhere (like
+  autoFR or adaptiveFR).
+- An analysis pipeline with all of the necessary code to replicate figures and
+  statistics from a published paper.
+- An application that runs Jupyter server so that your class can access the same
+data and software without installing anything locally.
 
-# Template Tutorial README 
+# Getting Started
 
-This tutorial is designed to be a starting point for other tutorials in this repo. It is recommended that you clone this tutorial and then use it as a launching point for your tutorial. There are three main components of the tutorial Notebooks, Data, and Slides. In the Data folder are two files. One creating data which saves as a .npy to the which is also stored in the folder. The Notebook folder contains an example Jupyter notebook that analyzes data from the Data folder. Finally the Slides folder contains an example slide show that walks through this tutorial and the source.tex to make your own presentation.
++ Clone this repo: `git clone https://github.com/ContextLab/CDL-tutorials.git`
 
++ Install [Docker](https://www.docker.com/) and [Google Chrome](https://www.google.com/chrome/browser/desktop/index.html)
 
-To be able to run through the notebooks in the tutorial first install the requirements using `pip install -r requirements.txt` After installing the requirements read through the slides, and then go through the notebook. 
++ Follow the instructions in Dockerfile. This file serves as a set of
+instructions for building a docker image. If you are unsure about a particular
+line, refer to Dockerfile_complete, which is a file with all of the instructions
+already filled in.
 
-After completing this tutorial, you should be able to move on to any other tutorial in the repo and also have the skill set needed to make your own tutorial. 
++ To build the docker image, make sure you have docker running, navigate to your
+local copy of this repo and execute the line: `docker build -t cdl .`. This will
+create a docker image from the instructions you specified in Dockerfile.
 
-## Table of contents
++ Once the docker image builds, you can launch it by executing the following
+command: `docker run -it -p 9999:9999 --name CDL -v ~/Desktop:/mnt cdl`. To
+unpack this, `run` runs the image. `-it` starts the container as an interactive
+process (like a shell). `-p` opens and links a port on the docker to a port on
+your local computer. `--name` names the container. `-v` allows you to share a
+volume between the docker container and your local computer. `cdl` at the end
+specifies which image you want to run. For more details on `docker run`, see
+[this](https://docs.docker.com/engine/reference/run/) link. You should now see
+the root@ prefix in your terminal, if so you've successfully created a container
+and are running a shell from inside!
 
-- [requirements](https://github.com/ContextLab/Tutorials/blob/master/Tutorial%20Template/requirements.txt)- List of dependencies for this tutorial, able to be automatically installed via `pip`.
-- [data](https://github.com/ContextLab/Tutorials/tree/master/Tutorial%20Template/Data) 
++ Launch the demo jupyter notebook:
+`jupyter notebook demo.ipynb --port=9999 --no-browser --ip=0.0.0.0 --allow-root` and then
+navigate to `localhost:9999` in your browser to access the notebook.
+
+<!-- ## Table of contents
+
+- [Dockerfile](https://github.com/ContextLab/Tutorials/blob/master/Tutorial%20Template/requirements.txt)- List of dependencies for this tutorial, able to be automatically installed via `pip`.
+- [data](https://github.com/ContextLab/Tutorials/tree/master/Tutorial%20Template/Data)
    - [example data creation](https://github.com/ContextLab/Tutorials/blob/master/Tutorial%20Template/Data/Example_Data_Creation.ipynb)- Notebook containing an example of how to create and save data
   - [chirp.npy](https://github.com/ContextLab/Tutorials/blob/master/Tutorial%20Template/Data/chirp.npy)- Npy file of the example dataset  
   - [downloading data example](https://github.com/ContextLab/CDL-tutorials/blob/master/tutorial_template/data/downloading_data_example.ipynb)- example of how to download data from on line and source it in the text, data from [here](http://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_iris.html#sklearn.datasets.load_iris)
@@ -30,8 +57,32 @@ After completing this tutorial, you should be able to move on to any other tutor
 - [notebooks](https://github.com/ContextLab/Tutorials/tree/master/Tutorial%20Template/Notebooks)- Folder containing Jupyter Notebooks
   - [demo](https://github.com/ContextLab/Tutorials/blob/master/Tutorial%20Template/Notebooks/Demo.ipynb)- Analyzing the sample data
 - [slides](https://github.com/ContextLab/Tutorials/tree/master/Tutorial%20Template/Slides)
-  - [slides.txt](https://github.com/ContextLab/Tutorials/blob/master/Tutorial%20Template/Slides/Source.tex)- Txt format for the slide show- copy and paste into Overleaf as a template to make your own show 
+  - [slides.txt](https://github.com/ContextLab/Tutorials/blob/master/Tutorial%20Template/Slides/Source.tex)- Txt format for the slide show- copy and paste into Overleaf as a template to make your own show
   - [slides.pdf](https://github.com/ContextLab/Tutorials/blob/master/Tutorial%20Template/Slides/template%20slideshow.pdf)-Pdf presentation of the tutorial
-  - [figs](https://github.com/ContextLab/Tutorials/tree/master/Tutorial%20Template/Slides/figs)- Folder containing figures for the slideshow 
+  - [figs](https://github.com/ContextLab/Tutorials/tree/master/Tutorial%20Template/Slides/figs)- Folder containing figures for the slideshow
     - [make figure](https://github.com/ContextLab/Tutorials/blob/master/Tutorial%20Template/Slides/figs/make_figure.ipynb)- Code to make the figure in the slideshow
-    - [sin](https://github.com/ContextLab/Tutorials/blob/master/Tutorial%20Template/Slides/figs/sin.pdf)- PDF version of slide show figure 
+    - [sin](https://github.com/ContextLab/Tutorials/blob/master/Tutorial%20Template/Slides/figs/sin.pdf)- PDF version of slide show figure -->
+
+## Helpful commands
+
+- See what docker images you have downloaded and can be used to create new containers:  
+	+ `docker images`  
+- See running container dockers:  
+	+ `docker ps`  
+- See all docker containers you have created (including those not running):  
+	+ `docker ps -a`
+- Startup and connect to previously created container:
+	+ `docker start yourContainerName`
+	+ `docker attach yourContainerName`
+- Delete a docker container:  
+	+ `docker rm yourContainerName`  
+- Delete a docker image:  
+	+ `docker rmi yourImageName`  
+- Stop a running container:  
+	+ `docker stop yourContainerName`
+- Execute a new command in an existing docker container
+	+ `docker exec yourContainer command`
+- Delete all containers that are no longer running:
+	+ `docker rm $(docker ps -aq -f status=exited)`
+- Force delete ALL containers
+	+ `docker rm -f $(docker ps -aq)`
