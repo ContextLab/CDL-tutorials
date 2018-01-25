@@ -44,7 +44,7 @@ and are running a shell from inside!
 
 + Launch the demo jupyter notebook:
 `jupyter notebook demo.ipynb --port=9999 --no-browser --ip=0.0.0.0 --allow-root` and then
-navigate to `localhost:9999` in your browser to access the notebook.
+navigate to `localhost:9999` (+ a token) in your browser to access the notebook.
 
 <!-- ## Table of contents
 
