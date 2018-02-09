@@ -13,6 +13,7 @@ class TestClass(object):
         assert hasattr(x, 'check')
 
 
+
 # finds both test_ prefixed functions. There is no need to subclass anything.
 
 #  In this example we will run the module by passing its filename:

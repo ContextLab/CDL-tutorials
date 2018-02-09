@@ -1,4 +1,4 @@
-# Now we will use `assert` that a certain error is raised
+# Now we assert that a certain error is raised
 
 # use `raises` helper to asser that some code raises an exception
 import pytest

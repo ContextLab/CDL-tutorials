@@ -8,7 +8,6 @@
 
 + Follow instructions in the Docker tutorial to build the docker image, or
 if you have already built the docker image, execute the command:
-
 `docker start CDL && docker attach CDL`
 
 + Install Pytests [https://docs.pytest.org/en/latest/getting-started.html] and
@@ -18,7 +17,7 @@ TravisCI [https://github.com/travis-ci/travis.rb.git]
 
 ## Pytest tutorial
 
-+ Walk through these scripts in the followin order and and execute these commands in this folder:
++ Walk through the scripts in the following order and and execute these commands in this folder:
 
 + test_sample.py
 
@@ -32,8 +31,15 @@ TravisCI [https://github.com/travis-ci/travis.rb.git]
 
 + `$ pytest -q test_class.py`
 
++ test_tmpdir.py
+
++ `$pytest -q test_tmpdir.py`
+
 ## IPytest tutorial
 
 + Walk through tutorial outlines in Testing.ipynb in the Notebooks folder
 
 ## Helpful commands
+
++ find helpful pytest fixtures:
+`pytest --fixtures`
