@@ -1,4 +1,5 @@
 {
   "Testing.py::TestClass::()::test_two": true, 
-  "Testing.py::test_incorrect_func": true
+  "Testing.py::test_incorrect_func": true, 
+  "Testing.py::test_needsfiles": true
 }

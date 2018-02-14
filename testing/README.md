@@ -17,27 +17,13 @@ TravisCI [https://github.com/travis-ci/travis.rb.git]
 
 ## Pytest tutorial
 
-+ Walk through the scripts in the following order and and execute these commands in this folder:
++ Test scripts found in the Tests folder
 
-+ test_sample.py
-
-+ `$ pytest`
-
-+ test_sysexit.py
-
-+ `$ pytest -q test_sysexit.py`
-
-+ test_class.py
-
-+ `$ pytest -q test_class.py`
-
-+ test_tmpdir.py
-
-+ `$pytest -q test_tmpdir.py`
++ Correspond to the examples in slides
 
 ## IPytest tutorial
 
-+ Walk through tutorial outlines in Testing.ipynb in the Notebooks folder
++ Walk through the same examples in Testing.ipynb found in the Notebooks folder
 
 ## Helpful commands
 
