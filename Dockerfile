@@ -34,7 +34,7 @@ matplotlib
 RUN pip install pytest \
 ipytest
 
-ADD pandas /pandas
+ADD PANDAS /PANDAS
 ADD coding /coding
 ADD docker /docker
 ADD testing /testing

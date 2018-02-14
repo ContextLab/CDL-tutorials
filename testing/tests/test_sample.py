@@ -1,4 +1,4 @@
-from fun import func
+from .fun import func
 
 def test_correct_func():
     assert func(4) == 5
