@@ -29,11 +29,12 @@ pandas \
 scikit-learn \
 seaborn \
 hypertools \
-matplotlib \
-ipytest \
-pytest
+matplotlib
 
-ADD pandas /PANDAS
+RUN pip install pytest \
+ipytest
+
+ADD pandas /pandas
 ADD coding /coding
 ADD docker /docker
 ADD testing /testing
