@@ -29,7 +29,9 @@ pandas \
 scikit-learn \
 seaborn \
 hypertools \
-matplotlib
+matplotlib \
+ipytest \
+pytest
 
 ADD pandas /PANDAS
 ADD coding /coding
