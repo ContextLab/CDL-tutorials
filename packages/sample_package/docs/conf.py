@@ -40,7 +40,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'sample'
+project = u'cdl'
 copyright = u'2017, Contextual Dynamics Laboratory'
 
 # The version info for the project you're documenting, acts as replacement for
@@ -164,7 +164,7 @@ html_static_path = ['_static']
 #html_file_suffix = None
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'sampledoc'
+htmlhelp_basename = 'cdl'
 
 
 # -- Options for LaTeX output --------------------------------------------------
@@ -183,7 +183,7 @@ latex_elements = {
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
-  ('index', 'sample.tex', u'sample Documentation',
+  ('index', 'cdl.tex', u'cdl Documentation',
    u'Contextual Dynamics Laboratory', 'manual'),
 ]
 
@@ -213,7 +213,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    ('index', 'sample', u'sample Documentation',
+    ('index', 'cdl', u'cdl Documentation',
      [u'Contextual Dynamics Laboratory'], 1)
 ]
 
@@ -227,8 +227,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-  ('index', 'sample', u'sample Documentation',
-   u'Contextual Dynamics Laboratory', 'sample', 'One line description of project.',
+  ('index', 'cdl', u'cdl Documentation',
+   u'Contextual Dynamics Laboratory', 'cdl', 'One line description of project.',
    'Miscellaneous'),
 ]
 

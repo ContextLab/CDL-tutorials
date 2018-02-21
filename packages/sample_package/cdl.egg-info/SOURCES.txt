@@ -1,4 +1,5 @@
 cdl/__init__.py
+cdl/conf.py
 cdl/core.py
 cdl/helpers.py
 cdl.egg-info/PKG-INFO
