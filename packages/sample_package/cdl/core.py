@@ -1,5 +1,5 @@
 import random
-from helpers import *
+from .helpers import first_phrase
 
 class chatter:
     def make(gender, category=None):
@@ -63,3 +63,20 @@ class convo:
         conversation = 'Hey! ' + sentence1 + '.       Oh really? Well, ' + sentence2
 
         return(conversation)
+
+class random:
+    def food():
+        return(random.choice(['hungry for Zahav cauliflower',
+                              'who\'s on milk this week?',
+                              'Weirdo Lady is selling delicious soup']))
+
+    def furniture():
+        return(random.choice(['you may fall off the stool and die',
+                              'how many lamps can we fit in the reading nook?',
+                              'Party Parrot Pillow Alliteration!']))
+
+    def travel():
+        return(random.choice(['I hear that if you fly out of Lebanon, you will die',
+                              'Dartmouth Coach at 6am unless I oversleep and miss it..',
+                              'I\'m going to start ice skating into work',
+                              'maybe Jeremy secretly drives to school, but parks somewhere we can\'t see']))

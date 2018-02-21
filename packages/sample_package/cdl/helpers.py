@@ -9,7 +9,7 @@ def first_phrase(name):
         return('I just ran myself on the attention task; ')
     if name == 'jeremy':
         return('The episode of West Wing I\'m on now...')
-    if name == 'paxton':
-        return('I always sit in front for Jeremy\'s lecture; ')
     if name == 'emily':
         return('I\'m addicted to drinking hot water; ')
+    if name == 'paxton':
+        return('I always sit in front for Jeremy\'s lecture; ')

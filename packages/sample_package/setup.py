@@ -10,9 +10,9 @@ with open('LICENSE') as f:
     license = f.read()
 
 setup(
-    name='sample',
+    name='cdl',
     version='0.1.0',
-    description='Sample package for Python-Guide.org',
+    description='Sample package for CDL tutorial',
     long_description=readme,
     author='Contextual Dynamics Laboratory',
     author_email='contextualdynamics@gmail.com',
