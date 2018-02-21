@@ -3,10 +3,11 @@
 This tutorial shows how to create a python package, starting from the CDL template, and how to create user friendly documentation for the package with readthedocs.
 
 To get started:
-
-[1] install the requirements in sample_package dir using `pip install -r requirements.txt` 
-[2] pip install the package and get a feel for how it works
-[3] begin making the documentation for readthedocs via collaboratory notebook
+[1] pull latest from CDL-tutorials repo
+[2] install the requirements in package/sample_package using `pip install -r requirements.txt` 
+[3] pip install the package 'pip install -e .' and play around with it
+[4] clone the CDL-starter-pack repository
+[5] copy the core.py and helpers.py files from sample_package into CDL-starter-pack to begin beuilding package as if from scratch
 
 
 ## Table of contents
