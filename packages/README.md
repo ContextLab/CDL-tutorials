@@ -4,9 +4,9 @@ This tutorial shows how to create a python package, starting from the CDL templa
 
 To get started:
 
-[1] install the requirements using `pip install -r requirements.txt` 
-[2] 
-[3] 
+[1] install the requirements in sample_package dir using `pip install -r requirements.txt` 
+[2] pip install the package and get a feel for how it works
+[3] begin making the documentation for readthedocs via collaboratory notebook
 
 
 ## Table of contents

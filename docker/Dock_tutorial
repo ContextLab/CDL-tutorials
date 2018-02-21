@@ -1,0 +1,84 @@
+# Dockerfile for CDL docker tutorial.  The line below is the operating system or
+# runtime. It is the 'parent image' which you can build on top of in the lines
+# below. For example, the parent image can be an operating system like debian
+# (a Linux distribution) or a runtime like python. To do this, use the keyword
+# FROM followed by an operating system like debian or a runtime like python.
+# ADD YOUR OPERATING SYSTEM OR RUNTIME BELOW THIS LINE
+
+# KZ : commands in caps
+FROM debian:stretch
+
+# This line specifies who maintains the docker file. Use the MAINTAINER keyword
+# followed by a name and email address in <>.
+# ADD PROJECT MAINTAINER BELOW THIS LINE
+
+MAINTAINER Kirsten Ziman <kirsten.k.ziman@dartmouth.edu>
+
+# Here, we will install all debian-related packages. apt-get is a linux package
+# that is similar to pip for python.  It contains many libraries that are useful
+# for scientific computing.  First, we will update apt-get to make sure it is up
+# to date. Note: if you are not building a linux-based system, apt-get will not
+# work. Use the RUN keyword, followed by the command to update apt-get
+# (apt-get update).
+# UPDATE APT-GET BELOW THIS LINE
+
+RUN apt-get  update 
+RUN apt-get install -y eatmydata
+
+# Now, we install some basic packages. Use the RUN keyword and then install
+# the packages you need with apt-get. You can copy these from Dockerfile_complete.
+# ADD YOUR APT-GET PACKAGE INSTALLS BELOW THIS LINE
+
+RUN eatmydata apt-get install -y wget bzip2 ca-certificates \
+    git \
+    swig \
+
+# Next, we will install anaconda. Anaconda is a python distribution that is
+# loaded with useful tools for scientific computing. Copy the lines from them
+# Dockerfile_complete to install anaconda.
+# ADD YOUR ANACONDA INSTALL CODE BELOW THIS LINE
+
+RUN echo 'export PATH=/opt/cona/bin:$PATH' > /etc/profile.d/conda.sh && \
+
+# Next, we will layer on some python packages.  First let's upgrade pip. Use the
+# RUN keyword followed by the command to update pip (pip install --upgrade pip).
+# UPDATE PIP BELOW THIS LINE
+
+RUN pip install --upgrade pip
+
+
+# Now, let's install all the libraries we need for the CDL docker image. What
+# are packages that will be useful to all members of the lab? Let's add them here.
+# Use the RUN keyword followed by the command to install pip packages. See the
+# section above for a hint.
+# ADD PIP PACKAGE INSTALLS BELOW THIS LINE
+
+RUN pip install psychopy
+# may need a way to check dependencies
+
+# Next, we will customize the docker image.  Here, we can add folders to the
+# docker image. Let's add the data and notebooks folders.  Use the ADD keyword
+# followed by the name of the folder you want to add and the location of where
+# you want that folder on the docker image.
+# ADD CUSTOM FOLDERS BELOW THIS LINE
+
+
+# Now, let's add the working director of the docker image. The working
+# directory is the location that the docker image initializes in
+# whenever it is started.  Use the WORKDIR keyword followed by the docker path to
+# set the working directory.  Let's set it to /notebooks
+# ADD THE WORKING DIRECTORY BELOW THIS LINE
+
+
+# We can add variables to the image as well.  These are variables that will be
+# accessible from the terminal.  For example, you can set a variable that
+# specifies the location of a credentials file. Use the ENV keyword to set the
+# variable GOOGLE_APPLICATION_CREDENTIALS to /data/credentials.json
+# SET THE ENV VARIABLE BELOW THIS LINE
+
+
+# This allows you to expose a port from within the docker to provide a service
+# or listen on. This is useful if you'd like to run a Jupyter notebook from
+# inside the docker image, or run a psiturk experiment. Use the EXPOSE keyword
+# followed by a port number (use 9999) to open the port.
+# EXPOSE THE PORT BELOW THIS LINE
