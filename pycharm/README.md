@@ -13,7 +13,7 @@ PyCharm is a GUI (unlike other text editors) and here are just a few reasons it'
 
 # Getting Started
 
-+ Clone or pull the lastest from this repo: `git clone https://github.com/ContextLab/CDL-tutorials.git`
++ Clone or pull the latest from this repo: `git clone https://github.com/ContextLab/CDL-tutorials.git`
 
 + Install [PyCharm](https://www.jetbrains.com/pycharm/) professional edition
 
