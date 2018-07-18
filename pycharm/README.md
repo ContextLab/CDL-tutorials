@@ -19,6 +19,30 @@ PyCharm is a GUI (unlike other text editors) and here are just a few reasons it'
 
 + Click `Open` and navigate to this PyCharm tutorial.
 
+# Configure the Python Interpreter
+
++ Click `Settings / Preferences dialog (⌘,)` and click on `Project Interpreter`
+
++ To begin, select Python 2.
+
+# Debugging
+
++ Open `examples/example_debug.py`
+
++ Go through PEP8 formatting hints and fix
+
++ Right click and select `Run`
+
++ Right click and select 'Debug'
+
++ Edit configurations to appropriate python interpreter
+
+# Profiler
+
++ Open `examples/example_profile.py`
+
++ Right click and select `Profile`
+
 # Using Docker as a Remote Interpreter
 
 ## Configure and Run Docker Image
@@ -50,6 +74,6 @@ and choose Add from the drop-down list.
 + In the dialog box that opens, select the Docker option, from the drop-down lists select the Docker
 server (if the server is missing, click New...) and image name.
 
-+ For more information, check this out: `https://www.jetbrains.com/help/pycharm/using-docker-as-a-remote-interpreter.html`
++ For more information, check this out: https://www.jetbrains.com/help/pycharm/using-docker-as-a-remote-interpreter.html
 
 + Now you can go ahead and run your script in a docker container!
