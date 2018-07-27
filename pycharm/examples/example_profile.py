@@ -1,4 +1,4 @@
-from helpers import add_it, exp_it
+from helpers import exp_it
 
 # example for loop for profiling
 
