@@ -16,6 +16,10 @@ In your project directory run:
 `python setup.py sdist`
 This should create a `.tar.gz` package of your source files within a new subfolder calles dist/.
 
+# Draft a new release
+You'll also need to add this tarball under the release notes.
+Make sure to document all changes that occurred between releases
+
 # Create a test install:
 Create a virtual environment:
 
