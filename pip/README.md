@@ -5,21 +5,7 @@
 
 First you need to either register or log in to [PyPi](https://pypi.org/) and [test PyPi](https://test.pypi.org/):
 
-Using a text editor, open up a `~/.pypirc ` file and add the following code:
-
-`[distutils]
-index-servers =
-    pypi
-    test
-
-[pypi]
-username:yourname
-password:yourpassword
-
-[test]
-repository:https://testpypi.python.org/pypi
-username:yourname
-password:yourpassword`
+Using a text editor, open up a `~/.pypirc ` file and add the code found in the pypirc.txt file:
 
 
 # Install Twine
