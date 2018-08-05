@@ -42,4 +42,7 @@ And make sure your package is installed.
 And check that you can install it:
 `pip install PACKAGENAME`
 
+
+If you get stuck, [this](https://tom-christie.github.io/articles/pypi/) is a great link.
+
 Fin
