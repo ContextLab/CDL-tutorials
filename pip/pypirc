@@ -8,6 +8,6 @@ username:yourname
 password:yourpassword
 
 [test]
-repository:https://testpypi.python.org/legacy/
+repository:https://test.pypi.org/legacy/
 username:yourname
 password:yourpassword
