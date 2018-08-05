@@ -18,14 +18,20 @@ This should create a `.tar.gz` package of your source files within a new subfold
 
 # Draft a new release
 You'll also need to add this tarball under the release notes.
-Make sure to document all changes that occurred between releases
+Make sure to document all changes that occurred between releases.
+
+# Create a test upload:
+`twine upload -r test dist/PACKAGENAME-VERSION.tar.gz`
 
 # Create a test install:
 Create a virtual environment:
 
 `virtualenv MY_VIRTUALENV`
+
 ` cd MY_VIRTUALENV`
+
 `source bin/activate`
+
 `pip install -i https://testpypi.python.org/pypi PACKAGENAME`
 
 And make sure your package is installed.
