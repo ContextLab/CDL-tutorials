@@ -10,6 +10,7 @@ This tutorial shows how to create a CDL-approved python package and how to gener
   * [CONTRIBUTING.md](#contributingmd)
   * [setup.py](#setuppy)
   * [requirements.txt](#requirementstxt)
+- [Documentation](documentation)
 
 ## Getting started
 1. Pull latest from CDL-tutorials repo
@@ -100,3 +101,28 @@ These are the essential fields to set up a python package. There are additional 
 
 ### requirements.txt
 This file contains all the software dependencies for your project. Each line should be a different pip installable package.  To specify particular versions, use the syntax: `hypertools==0.5.1`. An example can be seen [here](https://github.com/ContextLab/CDL-tutorials/blob/package-updates/packages/example_package/requirements.txt)
+
+## Documentation
+Great documentation is critical to the success of an open-source software project. Every (public) function you write should be accompanied by a docstring.  "Public" means that a user will directly interact with the function.  A docstring is a description of what the function does and includes all possible inputs and outputs. To be consistent, we use the numpydoc format. Here is a simple example:
+
+```
+def add(a, b):
+  """
+  The sum of two numbers.
+
+  Parameters
+  ----------
+  x : int
+      Description of parameter `x`.
+  y
+      Description of parameter `y` (with type not specified)
+
+  Returns
+  -------
+  int
+      Description of anonymous integer return value.
+  """
+  return a + b
+```
+
+In the CDL, we use `sphinx`, a package that helps to create awesome documentation.
