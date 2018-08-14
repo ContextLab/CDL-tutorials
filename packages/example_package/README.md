@@ -4,8 +4,10 @@ This tutorial shows how to create a CDL-approved python package and how to gener
 # Table of contents
 - [Getting started](#getting-started)
 - [Basic structure](#basic-structure-of-a-project)
-  * [README](#readme)
-  * [License](#license)
+  * [README.md](#readme.md)
+  * [LICENSE](#license)
+  * [CONTRIBUTING.md](#contributing.md)
+  * [setup.py](#setup.py)
 
 ## Getting started
 1. Pull latest from CDL-tutorials repo
@@ -36,7 +38,7 @@ tests/test_advanced.py             # more advanced tests
 These are the minimum files needed to create a CDL python package. \
 Below we'll go into more depth on each of these components
 
-### README
+### README.md
 While often tedious to create, this is one of the most important files in a software project.  It provides a roadmap for users to install, utilize and contribute to your project. Even the best code without proper documentation is effectively useless. A CDL-approved README should contain the following information:
 
 - __Overview__ - A plain english high level overview of what your package does
@@ -50,8 +52,36 @@ While often tedious to create, this is one of the most important files in a soft
 
 For examples of these README sections, please see the [hypertools](https://github.com/ContextLab/hypertools/blob/master/readme.md) README.
 
-### License
+### LICENSE
 We typically use an open-source MIT for software.  Use [this](https://github.com/ContextLab/hypertools/blob/master/LICENSE) one unless there is a reason for the software not to be open-source.
 
-### Contributing
+### CONTRIBUTING.md
 This section is critical for a successful open-source project. As the project grows, so will the number of people who'd like to contribute.  Having a guideline on how to contribute will save you (and contributors) a lot of time in the long run. For an example, see [here](https://github.com/ContextLab/hypertools/blob/master/CONTRIBUTING.md).
+
+### setup.py
+This file is required to tell python you want to create a python package. Below is a simple example of a setup.py file:
+```
+# -*- coding: utf-8 -*-
+
+from setuptools import setup, find_packages
+
+
+with open('README.md') as f:
+    readme = f.read()
+
+with open('LICENSE') as f:
+    license = f.read()
+
+setup(
+    name='cdl',
+    version='0.1.0',
+    description='Sample package for CDL tutorial',
+    long_description=readme,
+    author='Contextual Dynamics Laboratory',
+    author_email='contextualdynamics@gmail.com',
+    url='https://www.context-lab.com',
+    license=license,
+    packages=find_packages(exclude=('tests', 'docs'))
+)
+```
+These are the essential fields to set up a python package. There are additional arguments that can be added to this file.  For examples, see [here](https://github.com/ContextLab/hypertools/blob/master/setup.py) and [here](https://github.com/kennethreitz/setup.py).
