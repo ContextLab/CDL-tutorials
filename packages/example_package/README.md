@@ -4,10 +4,12 @@ This tutorial shows how to create a CDL-approved python package and how to gener
 # Table of contents
 - [Getting started](#getting-started)
 - [Basic structure](#basic-structure-of-a-project)
+- [The essentials](the-essentials)
   * [README.md](#readmemd)
   * [LICENSE](#license)
   * [CONTRIBUTING.md](#contributingmd)
   * [setup.py](#setuppy)
+  * [requirements.txt](#requirementstxt)
 
 ## Getting started
 1. Pull latest from CDL-tutorials repo
@@ -16,27 +18,33 @@ This tutorial shows how to create a CDL-approved python package and how to gener
 ## Basic structure of a project
 The basic structure for a CDL Python package looks like this:
 ```
+# essentials
 README.md                          # documentation about the package
 LICENSE                            # license file (typically MIT)
 CONTRIBUTING.md                    # file containing instructions for contributing
 setup.py                           # python package config file
 requirements.txt                   # text file containing software dependencies
 
-<name of package>/__init__.py      # file indicating that this folder is a module
-<name of package>/core.py          # file containing essential code
-<name of package>/helpers.py       # file containing helper functions
-
+# documentation
 docs/conf.py                       # file for configuring documentation with sphinx
 docs/index.rst                     # file to generate index.html on doc website
 docs/api.rst                       # file to specify API on doc website
 docs/tutorial/notebook.ipynb       # file to specify API on doc website
 docs/tutorial/tools/nb_to_doc.py   # file to specify API on doc website
 
+# tests
 tests/test_basic.py                # basic tests for package
 tests/test_advanced.py             # more advanced tests
+
+# code
+<name of package>/__init__.py      # file indicating that this folder is a module
+<name of package>/core.py          # file containing essential code
+<name of package>/helpers.py       # file containing helper functions
 ```
-These are the minimum files needed to create a CDL python package. \
-Below we'll go into more depth on each of these components
+These are the minimum files needed to create a CDL python package. We'll go into more depth on each of these components.
+
+## The essentials
+Below is a list of (important) files required for a CDL-approved python package.
 
 ### README.md
 While often tedious to create, this is one of the most important files in a software project.  It provides a roadmap for users to install, utilize and contribute to your project. Even the best code without proper documentation is effectively useless. A CDL-approved README should contain the following information:
@@ -72,6 +80,9 @@ with open('README.md') as f:
 with open('LICENSE') as f:
     license = f.read()
 
+with open('requirements.txt') as f:
+    requirements = f.read().splitlines()
+
 setup(
     name='cdl',
     version='0.1.0',
@@ -81,7 +92,11 @@ setup(
     author_email='contextualdynamics@gmail.com',
     url='https://www.context-lab.com',
     license=license,
+    install_requires = requirements,
     packages=find_packages(exclude=('tests', 'docs'))
 )
 ```
-These are the essential fields to set up a python package. There are additional arguments that can be added to this file.  For examples, see [here](https://github.com/ContextLab/hypertools/blob/master/setup.py) and [here](https://github.com/kennethreitz/setup.py).
+These are the essential fields to set up a python package. There are additional arguments that can be added to this file.  For examples, see [here](https://github.com/ContextLab/CDL-tutorials/blob/package-updates/packages/example_package/setup.py) and [here](https://github.com/kennethreitz/setup.py).
+
+### requirements.txt
+This file contains all the software dependencies for your project. Each line should be a different pip installable package.  To specify particular versions, use the syntax: `hypertools==0.5.1`. An example can be seen [here](https://github.com/ContextLab/CDL-tutorials/blob/package-updates/packages/example_package/requirements.txt)

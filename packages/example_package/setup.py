@@ -9,6 +9,9 @@ with open('README.md') as f:
 with open('LICENSE') as f:
     license = f.read()
 
+with open('requirements.txt') as f:
+    requirements = f.read().splitlines()
+
 setup(
     name='cdl',
     version='0.1.0',
@@ -18,5 +21,6 @@ setup(
     author_email='contextualdynamics@gmail.com',
     url='https://www.context-lab.com',
     license=license,
+    install_requires = requirements,
     packages=find_packages(exclude=('tests', 'docs'))
 )
