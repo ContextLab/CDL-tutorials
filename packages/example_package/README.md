@@ -10,7 +10,8 @@ This tutorial shows how to create a CDL-approved python package and how to gener
   * [CONTRIBUTING.md](#contributingmd)
   * [setup.py](#setuppy)
   * [requirements.txt](#requirementstxt)
-- [Documentation](documentation)
+- [Documentation](#documentation)
+  * [`sphinx`](#sphinx)
 
 ## Getting started
 1. Pull latest from CDL-tutorials repo
@@ -103,7 +104,7 @@ These are the essential fields to set up a python package. There are additional 
 This file contains all the software dependencies for your project. Each line should be a different pip installable package.  To specify particular versions, use the syntax: `hypertools==0.5.1`. An example can be seen [here](https://github.com/ContextLab/CDL-tutorials/blob/package-updates/packages/example_package/requirements.txt)
 
 ## Documentation
-Great documentation is critical to the success of an open-source software project. Every (public) function you write should be accompanied by a docstring.  "Public" means that a user will directly interact with the function.  A docstring is a description of what the function does and includes all possible inputs and outputs. To be consistent, we use the numpydoc format. Here is a simple example:
+Great documentation is critical to the success of an open-source software project. Every (public) function you write should be accompanied by a docstring.  "Public" means that a user will directly interact with the function.  A docstring is a description of what the function does and includes all possible inputs and outputs. To be consistent, we use the numpydoc format. For details on the numpydoc format, see [here](http://numpydoc.readthedocs.io/en/latest/format.html). Here is a simple example of a function documented in "numpydoc" style:
 
 ```
 def add(a, b):
@@ -114,8 +115,8 @@ def add(a, b):
   ----------
   x : int
       Description of parameter `x`.
-  y
-      Description of parameter `y` (with type not specified)
+  y : int
+      Description of parameter `y`
 
   Returns
   -------
@@ -125,4 +126,7 @@ def add(a, b):
   return a + b
 ```
 
-In the CDL, we use `sphinx`, a package that helps to create awesome documentation.
+In the CDL, we use `sphinx`, a package that helps to create awesome documentation. One of the nice things about `sphinx` is that if you document your code in the format above, it can be automatically ported to a `sphinx` documentation website. Therefore, we __strongly recommend__ using this format for code documentation (and documenting before or while you write the code!) as it makes the whole documentation process much, much easier.
+
+## `sphinx`
+`sphinx` is a python package that makes building great documentation easier. The basic idea is that it extracts the docstrings, example code, and tutorials in your software project and generates a nice html website from them. This website can be hosted on [ReadtheDocs](https://readthedocs.org/) (more on that later) or any web server (such as github pages). To generate `sphinx` documentation from scratch, (after installing `pip install sphinx`) you can use the [sphinx-quickstart](http://www.sphinx-doc.org/en/master/usage/quickstart.html) command line interface. However, this tutorial includes a template customized for CDL projects that you can use.
