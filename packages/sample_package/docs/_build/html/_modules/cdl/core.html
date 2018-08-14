@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>cdl.core &#8212; cdl 0.1.0 documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/gallery.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/bootswatch-3.3.6/yeti/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body role="document">
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          cdl</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.1</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+                <li><a href="../../api.html">API</a></li>
+                <li><a href="../../auto_examples/index.html">Gallery</a></li>
+                <li><a href="../../tutorials.html">Tutorials</a></li>
+                <li><a href="http://www.github.com/ContextLab/">Download</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"></ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"></ul>
+</li>
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <h1>Source code for cdl.core</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">from</span> <span class="nn">.helpers</span> <span class="k">import</span> <span class="n">first_phrase</span>
+
+<div class="viewcode-block" id="chatter"><a class="viewcode-back" href="../../cdl.chatter.html#cdl.chatter">[docs]</a><span class="k">class</span> <span class="nc">chatter</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This class is used to generate lab chatter and conversations</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># def __init__(): # this method creates the class object.</span>
+    <span class="c1">#     pass</span>
+
+    <span class="k">def</span> <span class="nf">make</span><span class="p">(</span><span class="n">gender</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        generates chatter from a lab member meeting the specified parameters</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        gender : str</span>
+<span class="sd">            gender of lab member (&#39;m&#39;/&#39;f&#39;)</span>
+
+<span class="sd">        category : str</span>
+<span class="sd">            type of lab member (&#39;post_doc&#39;, &#39;student&#39;, &#39;PI&#39;)</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        ----------</span>
+<span class="sd">        utterance : string</span>
+<span class="sd">            phrase simulating cdl chit chat</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">males</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;jeremy&#39;</span><span class="p">,</span> <span class="s1">&#39;andy&#39;</span><span class="p">,</span> <span class="s1">&#39;paxton&#39;</span><span class="p">]</span>
+        <span class="n">females</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;lucy&#39;</span><span class="p">,</span> <span class="s1">&#39;gina&#39;</span><span class="p">,</span> <span class="s1">&#39;kirsten&#39;</span><span class="p">,</span> <span class="s1">&#39;emily&#39;</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="n">category</span> <span class="o">==</span> <span class="s1">&#39;PI&#39;</span><span class="p">:</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;jeremy&#39;</span>
+
+        <span class="k">elif</span> <span class="n">gender</span> <span class="o">==</span> <span class="s1">&#39;m&#39;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">category</span> <span class="o">==</span> <span class="s1">&#39;post_doc&#39;</span><span class="p">:</span>
+                <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;andy&#39;</span>
+            <span class="k">elif</span> <span class="n">category</span> <span class="o">==</span> <span class="s1">&#39;student&#39;</span><span class="p">:</span>
+                <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;paxton&#39;</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">name</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">males</span><span class="p">)</span>
+
+        <span class="k">else</span> <span class="p">:</span>
+            <span class="k">if</span> <span class="n">category</span> <span class="o">==</span> <span class="s1">&#39;post_doc&#39;</span><span class="p">:</span>
+                <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;gina&#39;</span>
+            <span class="k">elif</span> <span class="n">category</span> <span class="o">==</span> <span class="s1">&#39;student&#39;</span><span class="p">:</span>
+                <span class="n">name</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="s1">&#39;lucy&#39;</span><span class="p">,</span> <span class="s1">&#39;kirsten&#39;</span><span class="p">])</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">name</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">females</span><span class="p">)</span>
+
+        <span class="c1"># output #</span>
+        <span class="n">utterance</span> <span class="o">=</span> <span class="n">first_phrase</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+        <span class="k">return</span><span class="p">(</span><span class="n">utterance</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">add_valence</span><span class="p">(</span><span class="n">phrase</span><span class="p">,</span> <span class="n">mood</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        adds valence to inputted utterance</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        phrase : str</span>
+<span class="sd">            any desired string, can be passed from chatter.make()</span>
+
+<span class="sd">            mood : str</span>
+<span class="sd">                desired valence (&#39;+&#39;, &#39;-&#39;)</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        ----------</span>
+<span class="sd">        mood_phrase : string</span>
+<span class="sd">            phrase with valence clause</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="n">mood</span> <span class="o">==</span> <span class="s1">&#39;+&#39;</span><span class="p">:</span>
+            <span class="n">mood_phrase</span> <span class="o">=</span> <span class="n">phrase</span> <span class="o">+</span> <span class="s1">&#39;it</span><span class="se">\&#39;</span><span class="s1">s AWESOME!!&#39;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">mood_phrase</span> <span class="o">=</span> <span class="n">phrase</span> <span class="o">+</span> <span class="s1">&#39;it</span><span class="se">\&#39;</span><span class="s1">s terrible.&#39;</span>
+
+        <span class="k">return</span><span class="p">(</span><span class="n">mood_phrase</span><span class="p">)</span></div>
+
+<span class="k">class</span> <span class="nc">convo</span><span class="p">:</span>
+    <span class="c1"># def __init__(self): # this method creates the class object.</span>
+    <span class="c1">#     pass</span>
+
+    <span class="k">def</span> <span class="nf">make</span><span class="p">(</span><span class="n">gender1</span><span class="p">,</span> <span class="n">gender2</span><span class="p">,</span> <span class="n">valence1</span><span class="p">,</span> <span class="n">valence2</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        adds valence to inputted utterance</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        phrase : str</span>
+<span class="sd">            any desired string, can be passed from chatter.make()</span>
+
+<span class="sd">            mood : str</span>
+<span class="sd">                desired valence (&#39;+&#39;, &#39;-&#39;)</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        ----------</span>
+<span class="sd">        mood_phrase : string</span>
+<span class="sd">            phrase with valence clause</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">sentence1</span> <span class="o">=</span> <span class="n">chatter</span><span class="o">.</span><span class="n">add_valence</span><span class="p">(</span><span class="n">chatter</span><span class="o">.</span><span class="n">make</span><span class="p">(</span><span class="n">gender1</span><span class="p">),</span> <span class="n">valence1</span><span class="p">)</span>
+        <span class="n">sentence2</span> <span class="o">=</span> <span class="n">chatter</span><span class="o">.</span><span class="n">add_valence</span><span class="p">(</span><span class="n">chatter</span><span class="o">.</span><span class="n">make</span><span class="p">(</span><span class="n">gender2</span><span class="p">),</span> <span class="n">valence2</span><span class="p">)</span>
+
+        <span class="n">conversation</span> <span class="o">=</span> <span class="s1">&#39;Hey! &#39;</span> <span class="o">+</span> <span class="n">sentence1</span> <span class="o">+</span> <span class="s1">&#39;.       Oh really? Well, &#39;</span> <span class="o">+</span> <span class="n">sentence2</span>
+
+        <span class="k">return</span><span class="p">(</span><span class="n">conversation</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">other</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This class is designed to return random lab phrases about various topics</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># def __init__(): # this method creates the class object.</span>
+    <span class="c1">#     pass</span>
+
+    <span class="k">def</span> <span class="nf">food</span><span class="p">():</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        returns random food phrase</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        ----------</span>
+<span class="sd">        food_phrase : string</span>
+<span class="sd">            string about food</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="s1">&#39;hungry for Zahav cauliflower; &#39;</span><span class="p">,</span>
+                              <span class="s1">&#39;who</span><span class="se">\&#39;</span><span class="s1">s on milk this week?; &#39;</span><span class="p">,</span>
+                              <span class="s1">&#39;Weirdo Lady is selling delicious soup; &#39;</span><span class="p">]))</span>
+
+    <span class="k">def</span> <span class="nf">furniture</span><span class="p">():</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        returns random furniture phrase</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        ----------</span>
+<span class="sd">        furniture_phrase : string</span>
+<span class="sd">                string about furniture</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="s1">&#39;you may fall off the stool and die; &#39;</span><span class="p">,</span>
+                              <span class="s1">&#39;how many lamps can we fit in the reading nook? &#39;</span><span class="p">,</span>
+                              <span class="s1">&#39;Party Parrot Pillow Alliteration! &#39;</span><span class="p">]))</span>
+
+    <span class="k">def</span> <span class="nf">travel</span><span class="p">():</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        returns random travel phrase</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        ----------</span>
+<span class="sd">        travel_phrase : string</span>
+<span class="sd">            string about travel</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="s1">&#39;I hear that if you fly out of Lebanon, you will die; &#39;</span><span class="p">,</span>
+                              <span class="s1">&#39;Dartmouth Coach at 6am unless I oversleep and miss it.. &#39;</span><span class="p">,</span>
+                              <span class="s1">&#39;I</span><span class="se">\&#39;</span><span class="s1">m going to start ice skating into work; &#39;</span><span class="p">,</span>
+                              <span class="s1">&#39;maybe Jeremy secretly drives to school, but parks somewhere we can</span><span class="se">\&#39;</span><span class="s1">t see; &#39;</span><span class="p">]))</span>
+</pre></div>
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+      
+    </p>
+    <p>
+        &copy; Copyright 2018, Contextual Dynamics Laboratory.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.5.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

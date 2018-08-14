@@ -1,3 +1,4 @@
+README.md
 cdl/__init__.py
 cdl/conf.py
 cdl/core.py
