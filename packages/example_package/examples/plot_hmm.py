@@ -14,4 +14,4 @@ Add some more text here.
 import cdl
 
 # run
-print(cdl.chatter())
+print(cdl.hmm())
