@@ -1,13 +1,26 @@
-## Python package tutorial
+# Python package tutorial
+This tutorial shows how to create a CDL-approved python package and how to generate documentation using sphinx.
 
-This tutorial shows how to create a python package, starting from the CDL template, and how to create user friendly documentation for the package with readthedocs.
+## To get started
+1. Pull latest from CDL-tutorials repo
+2. Navigate to the sample_package folder and run `pip install -e .`. This will install an editable installation of the package so you can modify it.
 
-To get started:
-[1] pull latest from CDL-tutorials repo
-[2] install the requirements in package/sample_package using `pip install -r requirements.txt`
-[3] pip install the package 'pip install -e .' and play around with it
-[4] clone the CDL-starter-pack repository
-[5] copy the core.py and helpers.py files from sample_package into CDL-starter-pack to begin beuilding package as if from scratch
+## Basic structure
+The very basic structure for a CDL Python package looks like this:
+```
+README.md                # documentation about the package
+LICENSE                  # license file (typically MIT)
+setup.py                 # python package config file
+requirements.txt         # text file containing software dependencies
+sample/__init__.py       # file indicating that this folder is a module
+sample/core.py           # file containing essential code
+sample/helpers.py        # file containing helper functions
+docs/conf.py             # file for configuring documentation with sphinx
+docs/index.rst           # file to generate index.html on doc website
+docs/api.rst             # file to specify API on doc website
+tests/test_basic.py      # basic tests for package
+tests/test_advanced.py   # more advanced tests
+```
 
 
 ## Table of contents
