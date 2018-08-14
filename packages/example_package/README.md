@@ -3,13 +3,17 @@ This tutorial shows how to create a CDL-approved python package and how to gener
 
 # Table of contents
 - [Getting started](#getting-started)
-- [Basic structure](#Basic structure)
+- [Basic structure](#basic-structure)
 
-## Getting started [](#){name=getting-started}
+## Getting started
+[](#){name=getting-started}
+
 1. Pull latest from CDL-tutorials repo
 2. Navigate to the example_package folder and run `pip install -e .`. This will install an editable installation of the package so you can modify it.
 
-## Basic structure [](#){name=basic-structure}
+## Basic structure
+[](#){name=basic-structure}
+
 The basic structure for a CDL Python package looks like this:
 ```
 README.md                          # documentation about the package
