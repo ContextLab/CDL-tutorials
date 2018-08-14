@@ -4,10 +4,10 @@ This tutorial shows how to create a CDL-approved python package and how to gener
 # Table of contents
 - [Getting started](#getting-started)
 - [Basic structure](#basic-structure-of-a-project)
-  * [README.md](#readme.md)
+  * [README.md](#readmemd)
   * [LICENSE](#license)
-  * [CONTRIBUTING.md](#contributing.md)
-  * [setup.py](#setup.py)
+  * [CONTRIBUTING.md](#contributingmd)
+  * [setup.py](#setuppy)
 
 ## Getting started
 1. Pull latest from CDL-tutorials repo
