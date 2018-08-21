@@ -19,7 +19,7 @@ This tutorial shows how to create a CDL-approved python package, organize the co
   * [`conf.py`](#confpy)
   * [`index.rst`](#indexrst)
   * [`api.rst`](#apirst)
-  * [Code examples](#code-examples)
+  * [Examples](#examples)
   * [Tutorials](#tutorials)
   * [`tutorials.rst`](#tutorialsrst)
   * [Build the documentation](#build-the-documentation)
