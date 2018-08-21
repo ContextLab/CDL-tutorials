@@ -19,9 +19,10 @@ This tutorial shows how to create a CDL-approved python package, organize the co
   * [`conf.py`](#confpy)
   * [`index.rst`](#indexrst)
   * [`api.rst`](#apirst)
-  * [Code examples](#codeexamples)
+  * [Code examples](#code-examples)
   * [Tutorials](#tutorials)
-  * [Building the documentation](#buildingthedocumentation)
+  * [`tutorials.rst`](#tutorialsrst)
+  * [Build the documentation](#build-the-documentation)
 - [Tests](#tests)
   * [`py.test`](#pytest)
   * [Travis CI](#travisci)
@@ -53,9 +54,13 @@ examples/README.txt                # can be empty, but required for sphinx to cr
 # documentation
 docs/conf.py                       # file for configuring documentation with sphinx
 docs/index.rst                     # file to generate index.html on doc website
-docs/api.rst                       # file to specify API on doc website
+docs/api.rst                       # file to specify API table of contents
+docs/Makefile                      # helps to generate the sphinx docs
+docs/tutorials.rst                 # file to specify tutorials table of content
 docs/tutorial/notebook.ipynb       # jupyter notebook with example tutorial
 docs/tutorial/tools/nb_to_doc.py   # tool to convert from .ipynb to .rst
+docs/tutorial/Makefile             # file to convert notebooks to .rst
+
 
 # tests
 tests/test_core.py                # basic tests for package
@@ -216,8 +221,6 @@ In the CDL, we use `sphinx`, a package that helps to create awesome documentatio
 + An examples page - stand alone examples of the software functionality
 + A tutorial page - detailed walkthrough of how to use the software
 
-Below are instructions on how to set up this page
-
 ### `conf.py`
 This is the primary configuration file for a `sphinx` website. It is located in `docs/conf.py`.  This file can be generated from scratch using `sphinx-quickstart`, but for most cases you can simply copy this file and replace the relevant fields. This file is heavily commented, so take a look for details. To customize this file for your project, follow these instructions:
 
@@ -240,6 +243,28 @@ This file serves as a template for your API documentation.  It's possible to set
 If you set up your docstrings correctly, that should be all you have to do.  When `sphinx` builds the website, these references will automatically be populated with your docstrings.  Note that this manual approach is easy enough for small projects but could be unsustainable for larger packages.  For larger packages, you'll want to learn how to use [sphinx-apidoc](http://www.sphinx-doc.org/en/master/man/sphinx-apidoc.html). For an example of an `api.rst` file, see [here](https://github.com/ContextLab/hypertools/blob/master/docs/api.rst).
 
 ### Tutorials
-While tedious, this is a crucial part of your documentation.  It provides a way for users to learn about the package how you intended it to be used.  In practice, writing these notebooks are also very useful for finding software bugs and testing whether your API makes sense in the "wild". These tutorials can be written as a jupyter notebook (located in `docs/tutorial`) and then converted to `.rst` format with a script that I shamelessly stole from `seaborn` (located here: `docs/tutorial/tools/nb_to_doc.py`). For an example notebook see [here](https://github.com/ContextLab/hypertools/blob/master/docs/tutorials/plot.ipynb). After writing the tutorial from `docs/tutorial` in the terminal run: `make notebooks`.  If this is successful, the output should be a `.rst` file with the same name as your notebook (and no error messages in the console). __NOTE:__ This must be run prior to generating the documentation.
+While tedious, this is a crucial part of your documentation.  It provides a way for users to learn about the package how you intended it to be used.  In practice, writing these notebooks are also very useful for finding software bugs and testing whether your API makes sense in the "wild". These tutorials can be written as a jupyter notebook (located in `docs/tutorial`) and then converted to `.rst` format with a script that I shamelessly stole from `seaborn` (located here: `docs/tutorial/tools/nb_to_doc.py`). For an example notebook see [here](https://github.com/ContextLab/hypertools/blob/master/docs/tutorials/plot.ipynb). After writing the tutorial from `docs/tutorial`, edit the `docs/tutorial/Makefile` to refer to each of you tutorial notebooks ([example](https://github.com/ContextLab/hypertools/blob/master/docs/tutorials/Makefile)). The, in the terminal run: `make notebooks`.  If this is successful, the output should be a `.rst` file with the same name as your notebook (and no error messages in the console). These `.rst` files will comprise the tutorials section of your documentation website. __NOTE:__ This must be run prior to generating the documentation.
+
+### `tutorials.rst`
+This file is used to specify the table of contents for your tutorials.  It is located in `docs/tutorial.rst`. Edit it for you own use by:
+1. change line 5 to whatever title you'd like
+2. change line 8 to be the title of the tutorial
+3. change line 14 to be the location of the jupyter notebook containing the tutorial
+4. copy lines 8-14 for as many tutorials as you have
+
+### Build the documentation
+If you've made it this far, you now have all the elements to build the documentation. Inside of the `docs` folder, simply run: `make html`.  If this runs successfully, it should generate a folder inside of `docs` called `_build`.  Navigate into this folder and double click `index.html`. At this point, you should have a full documentation website.  Click through the links to make sure they all work, and the examples and tutorials rendered properly.
+
+### ReadtheDocs
+If you've made it this far, syncing up to ReadtheDocs should be relatively painless:
+
+1. go to the ReadtheDocs [login](https://readthedocs.org/accounts/login/) page and enter your credentials (they will be on the CDL 1password site).
+2. log in and select "Import a project". Find your project and add it. __NOTE__: it will only show up here if it is under the CDL github list and is __public__.
+3. Give the project a name and click next.  
+4. Navigate to "Advanced Settings" and check "Install your project inside a virtualenv using setup.py install"
+5. Under `Requirements file`, add the text: `docs/doc_requirements.txt`
+6. Navigate to the bottom and hit save
+
+You can check to see if everything worked by clicking "Builds".  If the one on top says "Passed", the website compiled correctly on ReadtheDocs.  If it says "Failed", click the build and it will give you some output useful for debugging. If this all works, then you are good to go!  Any time you change the code/documentation (e.g. pushing to github), the website will rebuild and any new changes will be updated on the website automatically.
 
 ## Tests
