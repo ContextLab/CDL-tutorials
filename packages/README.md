@@ -144,7 +144,7 @@ cdl
     └── folder2_helpers.py : helper code for folder2 functionality
 ```
 
-### Code organization
+### Package organization
 As the project grows in complexity, organization becomes essential. CDL-approved packages generally follow a "modular" structure.  That is, functions that are similar in objective are grouped together. For example in the folders above, `folder1` might contain all code related to plotting whereas `folder2` code contain all code related to data analysis. Another principle we follow is to write everything once and reuse. You might be wondering, "What if I need the same functionality in two difference scripts"? The answer is to write the function once and then import it wherever you need it.  For example, if you needed some functionality from `folder1_helpers.py` in `folder1_core.py`, at the top of your `folder1_core.py` script you would write:
 
 ```
