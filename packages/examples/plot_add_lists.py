@@ -16,4 +16,4 @@ import cdl
 # run
 list1 = [1, 2, 3]
 list2 = [4, 5, 6]
-print(add_lists(list1, list2))
+print(cdl.add_lists(list1, list2))

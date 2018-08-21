@@ -11,7 +11,7 @@ This tutorial shows how to create a CDL-approved python package, organize the co
   * [setup.py](#setuppy)
   * [requirements.txt](#requirementstxt)
 - [Code](#code)  
-  * [Package organization](#packageorganization)
+  * [Package organization](#package-organization)
   * [`__init__.py`](#__init__py)
 - [Examples](#examples)
 - [Documentation](#documentation)
@@ -47,22 +47,24 @@ requirements.txt                   # text file containing software dependencies
 
 # code examples
 examples/                          # folder of python scripts containing example uses of your software
+examples/plot_XX.py                # file illustrating some functionality of the package
+examples/README.txt                # can be empty, but required for sphinx to create example gallery
 
 # documentation
 docs/conf.py                       # file for configuring documentation with sphinx
 docs/index.rst                     # file to generate index.html on doc website
 docs/api.rst                       # file to specify API on doc website
-docs/tutorial/notebook.ipynb       # file to specify API on doc website
-docs/tutorial/tools/nb_to_doc.py   # file to specify API on doc website
+docs/tutorial/notebook.ipynb       # jupyter notebook with example tutorial
+docs/tutorial/tools/nb_to_doc.py   # tool to convert from .ipynb to .rst
 
 # tests
-tests/test_basic.py                # basic tests for package
-tests/test_advanced.py             # more advanced tests
+tests/test_core.py                # basic tests for package
+tests/test_helpers.py             # more advanced tests
 ```
 These are the minimum files needed to create a CDL python package. We'll go into more depth on each of these components.
 
 ## The essentials
-Below is a list of (important) files required for a CDL-approved python package.
+Below is a list of files required for a CDL-approved python package.
 
 ### README.md
 While often tedious to create, this is one of the most important files in a software project.  It provides a roadmap for users to install, utilize and contribute to your project. Even the best code without proper documentation is effectively useless. A CDL-approved README should contain the following information:
@@ -163,6 +165,23 @@ For a full treatment of good coding principles, see [Jeremy's tutorial](https://
 This is a special file that tells Python to recognize a folder as part of your package. For every code folder in your package, you must include an `__init__.py` file if you want it included in the package.  It can be empty, or it can contain "initialization" code for the particular code module.
 
 ## Examples
+This folder contains basic examples of your package in action.  Keep these simple and self contained.  Users should be able to run all of the examples after installing your package.  The examples can be referred to directly, but will also be compiled and assembled into a gallery of examples on the documentation website (see [here](https://hypertools.readthedocs.io/en/latest/auto_examples/index.html) for example). In order for `sphinx` to recognize these, there are a few formatting requirements.  First, scripts that render an image must be named `plot_XX.py` where XX can be anything. Secondly, all scripts must have a header like this:
+
+```
+# -*- coding: utf-8 -*-
+"""
+=============================
+A basic example
+=============================
+
+Add some more text here.
+"""
+
+# Code source: Andrew Heusser
+# License: MIT
+```
+
+The text at the top (between the lines) will be read as the title of the example, and the text below the lines should be a high-level description of what is being illustrated with the example.  Finally, it's useful to include the code source and well as the license (although not strictly required). See [here](https://github.com/ContextLab/hypertools/blob/master/examples/plot_basic.py) for a full example.
 
 ## Documentation
 Great documentation is critical to the success of an open-source software project. Every (public) function you write should be accompanied by a docstring.  "Public" means that a user will directly interact with the function.  A docstring is a description of what the function does and includes all possible inputs and outputs. To be consistent, we use the numpydoc format. For details on the numpydoc format, see [here](http://numpydoc.readthedocs.io/en/latest/format.html). Here is a simple example of a function documented in "numpydoc" style:
