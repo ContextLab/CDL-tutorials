@@ -14,4 +14,6 @@ Add some more text here.
 import cdl
 
 # run
-print(cdl.hmm())
+list1 = [1, 2, 3]
+list2 = [4, 5, 6]
+print(add_lists(list1, list2))

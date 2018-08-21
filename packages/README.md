@@ -10,9 +10,9 @@ This tutorial shows how to create a CDL-approved python package and how to gener
   * [CONTRIBUTING.md](#contributingmd)
   * [setup.py](#setuppy)
   * [requirements.txt](#requirementstxt)
-- [Code](#code)
-  * [`__init__.py`](#__init__py)
+- [Code](#code)  
   * [Package organization](#packageorganization)
+  * [`__init__.py`](#__init__py)
 - [Examples](#examples)
 - [Documentation](#documentation)
   * [`sphinx`](#sphinx)
@@ -119,6 +119,14 @@ These are the essential fields to set up a python package. There are additional 
 ### requirements.txt
 This file contains all the software dependencies for your project. Each line should be a different pip installable package.  To specify particular versions, use the syntax: `hypertools==0.5.1`. An example can be seen [here](https://github.com/ContextLab/CDL-tutorials/blob/package-updates/packages/example_package/requirements.txt)
 
+## Code
+The code for your software project should go in a folder named with the name of the project.  In this example, the folder is `cdl` and it contains 3 files: `__init__.py`, `core.py` and `helpers.py`.  While package organization can vary dramatically as function of the project scope/complexity, there are some general organizational principles that will make it easier to maintain. There is also some fundamental structure you must follow in order for Python to recognize the code a package.
+
+### `__init__.py`
+This is a special file that tells Python to recognize a folder as part of your package. For every code folder in your package, you must include an `__init__.py` file if you want it included in the package.  It can be empty, or it can contain "initialization" code for the particular code module.
+
+## Examples
+
 ## Documentation
 Great documentation is critical to the success of an open-source software project. Every (public) function you write should be accompanied by a docstring.  "Public" means that a user will directly interact with the function.  A docstring is a description of what the function does and includes all possible inputs and outputs. To be consistent, we use the numpydoc format. For details on the numpydoc format, see [here](http://numpydoc.readthedocs.io/en/latest/format.html). Here is a simple example of a function documented in "numpydoc" style:
 
@@ -170,10 +178,12 @@ This file serves as a template for your API documentation.  It's possible to set
 
 1. change line 5 to the name of your package
 2. rename line 12 to the name of the function/class you want to document (this is just the label).
-3. Replace line 18 with the location of the function/class within the package (e.g. `cdl.chatter`).
+3. Replace line 18 with the location of the function/class within the package (e.g. `cdl.hmm`).
 4. Copy and paste line 12-18 for all functions/classes you want to document
 
 If you set up your docstrings correctly, that should be all you have to do.  When `sphinx` builds the website, these references will automatically be populated with your docstrings.  Note that this manual approach is easy enough for small projects but could be unsustainable for larger packages.  For larger packages, you'll want to learn how to use [sphinx-apidoc](http://www.sphinx-doc.org/en/master/man/sphinx-apidoc.html). For an example of an `api.rst` file, see [here](https://github.com/ContextLab/hypertools/blob/master/docs/api.rst).
 
 ### Tutorials
 While tedious, this is a crucial part of your documentation.  It provides a way for users to learn about the package how you intended it to be used.  In practice, writing these notebooks are also very useful for finding software bugs and testing whether your API makes sense in the "wild". These tutorials can be written as a jupyter notebook (located in `docs/tutorial`) and then converted to `.rst` format with a script that I shamelessly stole from `seaborn` (located here: `docs/tutorial/tools/nb_to_doc.py`). For an example notebook see [here](https://github.com/ContextLab/hypertools/blob/master/docs/tutorials/plot.ipynb). After writing the tutorial from `docs/tutorial` in the terminal run: `make notebooks`.  If this is successful, the output should be a `.rst` file with the same name as your notebook (and no error messages in the console). __NOTE:__ This must be run prior to generating the documentation.
+
+## Tests
