@@ -62,7 +62,6 @@ docs/tutorial/notebook.ipynb       # jupyter notebook with example tutorial
 docs/tutorial/tools/nb_to_doc.py   # tool to convert from .ipynb to .rst
 docs/tutorial/Makefile             # file to convert notebooks to .rst
 
-
 # tests
 tests/test_core.py                # basic tests for package
 tests/test_helpers.py             # more advanced tests
