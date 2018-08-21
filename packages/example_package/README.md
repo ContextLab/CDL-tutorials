@@ -12,6 +12,10 @@ This tutorial shows how to create a CDL-approved python package and how to gener
   * [requirements.txt](#requirementstxt)
 - [Documentation](#documentation)
   * [`sphinx`](#sphinx)
+  * [`conf.py`](#confpy)
+  * [`index.rst`](#indexrst)
+  * [`api.rst`](#apirst)
+  * [`Example notebooks`](#examplenotebooks)
 
 ## Getting started
 1. Pull latest from CDL-tutorials repo
@@ -145,3 +149,19 @@ This is the primary configuration file for a `sphinx` website. It is located in 
 2. replace lines 69 and 71 with the version of your software. If it's a new project start with `0.1.0`. We follow a release guideline called [semantic versioning](https://semver.org/). The basic idea is that releases with only minor bug fixes, patches, typo fixes etc. will advance the rightmost number (`0.1.0 -> 0.1.1`). Major changes like API changes and feature additions advance the middle number (`0.1.0 -> 0.2.0`).  When you are confident that there are no major bugs and importantly the API is __fixed__ and stable, then it is time for a major release (`0.1.0 -> 1.0.0`). Note: It is __bad form__ to change the API after a major release.  Thus, any changes to the API would require anoter major release (`1.0.0 -> 2.0.0`), so __do not__ do this prematurely.  For some context, at the time of writing this `seaborn` is about 5 years old and just recently released version `0.9.0` (i.e. it hasn't yet hit a major release). For all releases `<1.0.0` it is totally fine to change the API (but be kind to your users, nobody likes a moving target).
 3. replace line 119 and 129 with the link to the software (e.g. https://github.com/ContextLab/hypertools)
 4. replace `cdl` in lines 139, 166, 187-88 with the name of your software (e.g. hypertools)
+
+### `index.rst`
+This [reStructuredText](http://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html) file is the home page for your website. At the very least, you should provide a high-level description of what your software is intended to do. For an example, see [here](https://github.com/ContextLab/hypertools/blob/master/docs/index.rst).
+
+### `api.rst`
+This file serves as a template for your API documentation.  It's possible to set this up automatically with sphinx (`sphinx-apidoc`), but it can also be done by hand (which is how I typically do it). To set up your API:
+
+1. change line 5 to the name of your package
+2. rename line 12 to the name of the function/class you want to document (this is just the label).
+3. Replace line 18 with the location of the function/class within the package (e.g. `cdl.chatter`).
+4. Copy and paste line 12-18 for all functions/classes you want to document
+
+If you set up your docstrings correctly, that should be all you have to do.  When `sphinx` builds the website, these references will automatically be populated with your docstrings.  Note that this manual approach is easy enough for small projects but could be unsustainable for larger packages.  For larger packages, you'll want to learn how to use [sphinx-apidoc](http://www.sphinx-doc.org/en/master/man/sphinx-apidoc.html). For an example of an `api.rst` file, see [here](https://github.com/ContextLab/hypertools/blob/master/docs/api.rst).
+
+### Example notebooks
+While tedious, this is a crucial part of your documentation.  It provides a way for users to learn about the package how you intended it to be used.  In practice, writing these notebooks are also very useful for finding software bugs and testing whether your API makes sense in the "wild". These tutorials can be written as a jupyter notebook (located in `docs/tutorial`) and then converted to `.rst` format with a script that I shamelessly stole from `seaborn` (located here: `docs/tutorial/tools/nb_to_doc.py`). For an example notebook see [here](https://github.com/ContextLab/hypertools/blob/master/docs/tutorials/plot.ipynb). After writing the tutorial from `docs/tutorial` in the terminal run: `make notebooks`.  If this is successful, the output should be a `.rst` file with the same name as your notebook (and no error messages in the console). __NOTE:__ This must be run prior to generating the documentation.
