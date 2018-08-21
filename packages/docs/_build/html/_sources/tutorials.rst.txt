@@ -11,4 +11,4 @@ Example
 .. toctree::
    :maxdepth: 2
 
-   tutorial/example_notebook.ipynb
+   tutorial/notebook.ipynb

@@ -9,9 +9,9 @@
 
 .. only:: html
 
-    .. figure:: /auto_examples/images/thumb/sphx_glr_plot_basic_thumb.png
+    .. figure:: /auto_examples/images/thumb/sphx_glr_plot_add_lists_thumb.png
 
-        :ref:`sphx_glr_auto_examples_plot_basic.py`
+        :ref:`sphx_glr_auto_examples_plot_add_lists.py`
 
 .. raw:: html
 
@@ -21,7 +21,7 @@
 .. toctree::
    :hidden:
 
-   /auto_examples/plot_basic
+   /auto_examples/plot_add_lists
 .. raw:: html
 
     <div style='clear:both'></div>
@@ -36,13 +36,13 @@
 
   .. container:: sphx-glr-download
 
-    :download:`Download all examples in Python source code: auto_examples_python.zip <//Users/andrewheusser/Documents/github/CDL-tutorials/packages/sample_package/docs/auto_examples/auto_examples_python.zip>`
+    :download:`Download all examples in Python source code: auto_examples_python.zip <//Users/andrewheusser/Documents/github/CDL-tutorials/packages/docs/auto_examples/auto_examples_python.zip>`
 
 
 
   .. container:: sphx-glr-download
 
-    :download:`Download all examples in Jupyter notebooks: auto_examples_jupyter.zip <//Users/andrewheusser/Documents/github/CDL-tutorials/packages/sample_package/docs/auto_examples/auto_examples_jupyter.zip>`
+    :download:`Download all examples in Jupyter notebooks: auto_examples_jupyter.zip <//Users/andrewheusser/Documents/github/CDL-tutorials/packages/docs/auto_examples/auto_examples_jupyter.zip>`
 
 
 .. only:: html

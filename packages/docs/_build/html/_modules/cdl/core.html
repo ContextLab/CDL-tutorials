@@ -111,161 +111,26 @@
     <div class="col-md-12 content">
       
   <h1>Source code for cdl.core</h1><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">random</span>
-<span class="kn">from</span> <span class="nn">.helpers</span> <span class="k">import</span> <span class="n">first_phrase</span>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="kn">from</span> <span class="nn">.helpers</span> <span class="k">import</span> <span class="n">add</span>
 
-<div class="viewcode-block" id="chatter"><a class="viewcode-back" href="../../cdl.chatter.html#cdl.chatter">[docs]</a><span class="k">class</span> <span class="nc">chatter</span><span class="p">:</span>
+<div class="viewcode-block" id="add_lists"><a class="viewcode-back" href="../../cdl.add_lists.html#cdl.add_lists">[docs]</a><span class="k">def</span> <span class="nf">add_lists</span><span class="p">(</span><span class="n">list1</span><span class="p">,</span> <span class="n">list2</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    This class is used to generate lab chatter and conversations</span>
+<span class="sd">    Add two lists of integers element-wise</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    list1 : list</span>
+<span class="sd">      The first list</span>
+<span class="sd">    y : int</span>
+<span class="sd">      The second list</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    list</span>
+<span class="sd">      Element-wise sum of the two lists</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-
-    <span class="c1"># def __init__(): # this method creates the class object.</span>
-    <span class="c1">#     pass</span>
-
-    <span class="k">def</span> <span class="nf">make</span><span class="p">(</span><span class="n">gender</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        generates chatter from a lab member meeting the specified parameters</span>
-
-<span class="sd">        Parameters</span>
-<span class="sd">        ----------</span>
-<span class="sd">        gender : str</span>
-<span class="sd">            gender of lab member (&#39;m&#39;/&#39;f&#39;)</span>
-
-<span class="sd">        category : str</span>
-<span class="sd">            type of lab member (&#39;post_doc&#39;, &#39;student&#39;, &#39;PI&#39;)</span>
-
-<span class="sd">        Returns</span>
-<span class="sd">        ----------</span>
-<span class="sd">        utterance : string</span>
-<span class="sd">            phrase simulating cdl chit chat</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-
-        <span class="n">males</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;jeremy&#39;</span><span class="p">,</span> <span class="s1">&#39;andy&#39;</span><span class="p">,</span> <span class="s1">&#39;paxton&#39;</span><span class="p">]</span>
-        <span class="n">females</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;lucy&#39;</span><span class="p">,</span> <span class="s1">&#39;gina&#39;</span><span class="p">,</span> <span class="s1">&#39;kirsten&#39;</span><span class="p">,</span> <span class="s1">&#39;emily&#39;</span><span class="p">]</span>
-
-        <span class="k">if</span> <span class="n">category</span> <span class="o">==</span> <span class="s1">&#39;PI&#39;</span><span class="p">:</span>
-            <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;jeremy&#39;</span>
-
-        <span class="k">elif</span> <span class="n">gender</span> <span class="o">==</span> <span class="s1">&#39;m&#39;</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">category</span> <span class="o">==</span> <span class="s1">&#39;post_doc&#39;</span><span class="p">:</span>
-                <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;andy&#39;</span>
-            <span class="k">elif</span> <span class="n">category</span> <span class="o">==</span> <span class="s1">&#39;student&#39;</span><span class="p">:</span>
-                <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;paxton&#39;</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="n">name</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">males</span><span class="p">)</span>
-
-        <span class="k">else</span> <span class="p">:</span>
-            <span class="k">if</span> <span class="n">category</span> <span class="o">==</span> <span class="s1">&#39;post_doc&#39;</span><span class="p">:</span>
-                <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;gina&#39;</span>
-            <span class="k">elif</span> <span class="n">category</span> <span class="o">==</span> <span class="s1">&#39;student&#39;</span><span class="p">:</span>
-                <span class="n">name</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="s1">&#39;lucy&#39;</span><span class="p">,</span> <span class="s1">&#39;kirsten&#39;</span><span class="p">])</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="n">name</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">females</span><span class="p">)</span>
-
-        <span class="c1"># output #</span>
-        <span class="n">utterance</span> <span class="o">=</span> <span class="n">first_phrase</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
-        <span class="k">return</span><span class="p">(</span><span class="n">utterance</span><span class="p">)</span>
-
-    <span class="k">def</span> <span class="nf">add_valence</span><span class="p">(</span><span class="n">phrase</span><span class="p">,</span> <span class="n">mood</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        adds valence to inputted utterance</span>
-
-<span class="sd">        Parameters</span>
-<span class="sd">        ----------</span>
-<span class="sd">        phrase : str</span>
-<span class="sd">            any desired string, can be passed from chatter.make()</span>
-
-<span class="sd">            mood : str</span>
-<span class="sd">                desired valence (&#39;+&#39;, &#39;-&#39;)</span>
-
-<span class="sd">        Returns</span>
-<span class="sd">        ----------</span>
-<span class="sd">        mood_phrase : string</span>
-<span class="sd">            phrase with valence clause</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-
-        <span class="k">if</span> <span class="n">mood</span> <span class="o">==</span> <span class="s1">&#39;+&#39;</span><span class="p">:</span>
-            <span class="n">mood_phrase</span> <span class="o">=</span> <span class="n">phrase</span> <span class="o">+</span> <span class="s1">&#39;it</span><span class="se">\&#39;</span><span class="s1">s AWESOME!!&#39;</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">mood_phrase</span> <span class="o">=</span> <span class="n">phrase</span> <span class="o">+</span> <span class="s1">&#39;it</span><span class="se">\&#39;</span><span class="s1">s terrible.&#39;</span>
-
-        <span class="k">return</span><span class="p">(</span><span class="n">mood_phrase</span><span class="p">)</span></div>
-
-<span class="k">class</span> <span class="nc">convo</span><span class="p">:</span>
-    <span class="c1"># def __init__(self): # this method creates the class object.</span>
-    <span class="c1">#     pass</span>
-
-    <span class="k">def</span> <span class="nf">make</span><span class="p">(</span><span class="n">gender1</span><span class="p">,</span> <span class="n">gender2</span><span class="p">,</span> <span class="n">valence1</span><span class="p">,</span> <span class="n">valence2</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        adds valence to inputted utterance</span>
-
-<span class="sd">        Parameters</span>
-<span class="sd">        ----------</span>
-<span class="sd">        phrase : str</span>
-<span class="sd">            any desired string, can be passed from chatter.make()</span>
-
-<span class="sd">            mood : str</span>
-<span class="sd">                desired valence (&#39;+&#39;, &#39;-&#39;)</span>
-
-<span class="sd">        Returns</span>
-<span class="sd">        ----------</span>
-<span class="sd">        mood_phrase : string</span>
-<span class="sd">            phrase with valence clause</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-
-        <span class="n">sentence1</span> <span class="o">=</span> <span class="n">chatter</span><span class="o">.</span><span class="n">add_valence</span><span class="p">(</span><span class="n">chatter</span><span class="o">.</span><span class="n">make</span><span class="p">(</span><span class="n">gender1</span><span class="p">),</span> <span class="n">valence1</span><span class="p">)</span>
-        <span class="n">sentence2</span> <span class="o">=</span> <span class="n">chatter</span><span class="o">.</span><span class="n">add_valence</span><span class="p">(</span><span class="n">chatter</span><span class="o">.</span><span class="n">make</span><span class="p">(</span><span class="n">gender2</span><span class="p">),</span> <span class="n">valence2</span><span class="p">)</span>
-
-        <span class="n">conversation</span> <span class="o">=</span> <span class="s1">&#39;Hey! &#39;</span> <span class="o">+</span> <span class="n">sentence1</span> <span class="o">+</span> <span class="s1">&#39;.       Oh really? Well, &#39;</span> <span class="o">+</span> <span class="n">sentence2</span>
-
-        <span class="k">return</span><span class="p">(</span><span class="n">conversation</span><span class="p">)</span>
-
-<span class="k">class</span> <span class="nc">other</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    This class is designed to return random lab phrases about various topics</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="c1"># def __init__(): # this method creates the class object.</span>
-    <span class="c1">#     pass</span>
-
-    <span class="k">def</span> <span class="nf">food</span><span class="p">():</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        returns random food phrase</span>
-
-<span class="sd">        Returns</span>
-<span class="sd">        ----------</span>
-<span class="sd">        food_phrase : string</span>
-<span class="sd">            string about food</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="s1">&#39;hungry for Zahav cauliflower; &#39;</span><span class="p">,</span>
-                              <span class="s1">&#39;who</span><span class="se">\&#39;</span><span class="s1">s on milk this week?; &#39;</span><span class="p">,</span>
-                              <span class="s1">&#39;Weirdo Lady is selling delicious soup; &#39;</span><span class="p">]))</span>
-
-    <span class="k">def</span> <span class="nf">furniture</span><span class="p">():</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        returns random furniture phrase</span>
-
-<span class="sd">        Returns</span>
-<span class="sd">        ----------</span>
-<span class="sd">        furniture_phrase : string</span>
-<span class="sd">                string about furniture</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="s1">&#39;you may fall off the stool and die; &#39;</span><span class="p">,</span>
-                              <span class="s1">&#39;how many lamps can we fit in the reading nook? &#39;</span><span class="p">,</span>
-                              <span class="s1">&#39;Party Parrot Pillow Alliteration! &#39;</span><span class="p">]))</span>
-
-    <span class="k">def</span> <span class="nf">travel</span><span class="p">():</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        returns random travel phrase</span>
-
-<span class="sd">        Returns</span>
-<span class="sd">        ----------</span>
-<span class="sd">        travel_phrase : string</span>
-<span class="sd">            string about travel</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="s1">&#39;I hear that if you fly out of Lebanon, you will die; &#39;</span><span class="p">,</span>
-                              <span class="s1">&#39;Dartmouth Coach at 6am unless I oversleep and miss it.. &#39;</span><span class="p">,</span>
-                              <span class="s1">&#39;I</span><span class="se">\&#39;</span><span class="s1">m going to start ice skating into work; &#39;</span><span class="p">,</span>
-                              <span class="s1">&#39;maybe Jeremy secretly drives to school, but parks somewhere we can</span><span class="se">\&#39;</span><span class="s1">t see; &#39;</span><span class="p">]))</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">add</span><span class="p">(</span><span class="n">l1</span><span class="p">,</span> <span class="n">l2</span><span class="p">)</span> <span class="k">for</span> <span class="n">l1</span><span class="p">,</span> <span class="n">l2</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">list1</span><span class="p">,</span> <span class="n">list2</span><span class="p">)]</span></div>
 </pre></div>
 
     </div>

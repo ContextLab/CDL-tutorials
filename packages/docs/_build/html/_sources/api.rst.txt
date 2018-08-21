@@ -9,10 +9,18 @@ API reference
 
 .. _plot_api:
 
-Chatter
+Add lists
 ------------------
 
 .. autosummary::
   :toctree:
 
-  cdl.chatter
+  cdl.add_lists
+
+Add integers
+------------------
+
+.. autosummary::
+  :toctree:
+
+  cdl.add
