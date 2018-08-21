@@ -10,12 +10,21 @@ This tutorial shows how to create a CDL-approved python package and how to gener
   * [CONTRIBUTING.md](#contributingmd)
   * [setup.py](#setuppy)
   * [requirements.txt](#requirementstxt)
+- [Code](#code)
+  * [`__init__.py`](#__init__py)
+  * [Package organization](#packageorganization)
+- [Examples](#examples)
 - [Documentation](#documentation)
   * [`sphinx`](#sphinx)
   * [`conf.py`](#confpy)
   * [`index.rst`](#indexrst)
   * [`api.rst`](#apirst)
-  * [`Example notebooks`](#examplenotebooks)
+  * [Code examples](#codeexamples)
+  * [Tutorials](#tutorials)
+  * [Building the documentation](#buildingthedocumentation)
+- [Tests](#tests)
+  * [`py.test`](#pytest)
+  * [Travis CI](#travisci)
 
 ## Getting started
 1. Pull latest from CDL-tutorials repo
@@ -31,6 +40,14 @@ CONTRIBUTING.md                    # file containing instructions for contributi
 setup.py                           # python package config file
 requirements.txt                   # text file containing software dependencies
 
+# code
+<name of package>/__init__.py      # file indicating that this folder is a module
+<name of package>/core.py          # file containing essential code
+<name of package>/helpers.py       # file containing helper functions
+
+# code examples
+examples/                          # folder of python scripts containing example uses of your software
+
 # documentation
 docs/conf.py                       # file for configuring documentation with sphinx
 docs/index.rst                     # file to generate index.html on doc website
@@ -41,11 +58,6 @@ docs/tutorial/tools/nb_to_doc.py   # file to specify API on doc website
 # tests
 tests/test_basic.py                # basic tests for package
 tests/test_advanced.py             # more advanced tests
-
-# code
-<name of package>/__init__.py      # file indicating that this folder is a module
-<name of package>/core.py          # file containing essential code
-<name of package>/helpers.py       # file containing helper functions
 ```
 These are the minimum files needed to create a CDL python package. We'll go into more depth on each of these components.
 
@@ -163,5 +175,5 @@ This file serves as a template for your API documentation.  It's possible to set
 
 If you set up your docstrings correctly, that should be all you have to do.  When `sphinx` builds the website, these references will automatically be populated with your docstrings.  Note that this manual approach is easy enough for small projects but could be unsustainable for larger packages.  For larger packages, you'll want to learn how to use [sphinx-apidoc](http://www.sphinx-doc.org/en/master/man/sphinx-apidoc.html). For an example of an `api.rst` file, see [here](https://github.com/ContextLab/hypertools/blob/master/docs/api.rst).
 
-### Example notebooks
+### Tutorials
 While tedious, this is a crucial part of your documentation.  It provides a way for users to learn about the package how you intended it to be used.  In practice, writing these notebooks are also very useful for finding software bugs and testing whether your API makes sense in the "wild". These tutorials can be written as a jupyter notebook (located in `docs/tutorial`) and then converted to `.rst` format with a script that I shamelessly stole from `seaborn` (located here: `docs/tutorial/tools/nb_to_doc.py`). For an example notebook see [here](https://github.com/ContextLab/hypertools/blob/master/docs/tutorials/plot.ipynb). After writing the tutorial from `docs/tutorial` in the terminal run: `make notebooks`.  If this is successful, the output should be a `.rst` file with the same name as your notebook (and no error messages in the console). __NOTE:__ This must be run prior to generating the documentation.
