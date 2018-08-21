@@ -4,7 +4,7 @@ This tutorial shows how to create a CDL-approved python package, organize the co
 # Table of contents
 - [Getting started](#getting-started)
 - [Basic structure](#basic-structure-of-a-project)
-- [The essentials](the-essentials)
+- [The essentials](#the-essentials)
   * [README.md](#readmemd)
   * [LICENSE](#license)
   * [CONTRIBUTING.md](#contributingmd)
@@ -56,6 +56,7 @@ docs/conf.py                       # file for configuring documentation with sph
 docs/index.rst                     # file to generate index.html on doc website
 docs/api.rst                       # file to specify API table of contents
 docs/Makefile                      # helps to generate the sphinx docs
+docs/doc_requirements.txt          # file containing requirements to build documentation
 docs/tutorials.rst                 # file to specify tutorials table of content
 docs/tutorial/notebook.ipynb       # jupyter notebook with example tutorial
 docs/tutorial/tools/nb_to_doc.py   # tool to convert from .ipynb to .rst
