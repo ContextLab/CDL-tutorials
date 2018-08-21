@@ -126,7 +126,22 @@ def add(a, b):
   return a + b
 ```
 
-In the CDL, we use `sphinx`, a package that helps to create awesome documentation. One of the nice things about `sphinx` is that if you document your code in the format above, it can be automatically ported to a `sphinx` documentation website. Therefore, we __strongly recommend__ using this format for code documentation (and documenting before or while you write the code!) as it makes the whole documentation process much, much easier.
+In the CDL, we use `sphinx`, a package that helps to create awesome documentation. One of the nice things about `sphinx` is that if you document your code in the format above, it can be (mostly) automatically ported to a `sphinx` documentation website. Therefore, we __strongly recommend__ using this format for code documentation (and documenting before or while you write the code!) as it makes the whole documentation process much, much easier.
 
 ## `sphinx`
-`sphinx` is a python package that makes building great documentation easier. The basic idea is that it extracts the docstrings, example code, and tutorials in your software project and generates a nice html website from them. This website can be hosted on [ReadtheDocs](https://readthedocs.org/) (more on that later) or any web server (such as github pages). To generate `sphinx` documentation from scratch, (after installing `pip install sphinx`) you can use the [sphinx-quickstart](http://www.sphinx-doc.org/en/master/usage/quickstart.html) command line interface. However, this tutorial includes a template customized for CDL projects that you can use.
+`sphinx` is a python package that makes building great documentation easier. The basic idea is that it extracts the docstrings, example code, and tutorials in your software project and generates a nice html website from them. This website can be hosted on [ReadtheDocs](https://readthedocs.org/) (more on that later) or any web server (such as github pages). To generate `sphinx` documentation from scratch, (after installing `pip install sphinx`) you can use the [sphinx-quickstart](http://www.sphinx-doc.org/en/master/usage/quickstart.html) command line interface. However, this tutorial includes a template customized for CDL projects that you can use. The main components of a CDL-approved sphinx page include:
+
++ A homepage - introduces the software
++ An API page - documentation of how to use it
++ An examples page - stand alone examples of the software functionality
++ A tutorial page - detailed walkthrough of how to use the software
+
+Below are instructions on how to set up this page
+
+### `conf.py`
+This is the primary configuration file for a `sphinx` website. It is located in `docs/conf.py`.  This file can be generated from scratch using `sphinx-quickstart`, but for most cases you can simply copy this file and replace the relevant fields. This file is heavily commented, so take a look for details. To customize this file for your project, follow these instructions:
+
+1. replace line 60 with the name of your project
+2. replace lines 69 and 71 with the version of your software. If it's a new project start with `0.1.0`. We follow a release guideline called [semantic versioning](https://semver.org/). The basic idea is that releases with only minor bug fixes, patches, typo fixes etc. will advance the rightmost number (`0.1.0 -> 0.1.1`). Major changes like API changes and feature additions advance the middle number (`0.1.0 -> 0.2.0`).  When you are confident that there are no major bugs and importantly the API is __fixed__ and stable, then it is time for a major release (`0.1.0 -> 1.0.0`). Note: It is __bad form__ to change the API after a major release.  Thus, any changes to the API would require anoter major release (`1.0.0 -> 2.0.0`), so __do not__ do this prematurely.  For some context, at the time of writing this `seaborn` is about 5 years old and just recently released version `0.9.0` (i.e. it hasn't yet hit a major release). For all releases `<1.0.0` it is totally fine to change the API (but be kind to your users, nobody likes a moving target).
+3. replace line 119 and 129 with the link to the software (e.g. https://github.com/ContextLab/hypertools)
+4. replace `cdl` in lines 139, 166, 187-88 with the name of your software (e.g. hypertools)
