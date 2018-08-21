@@ -48,7 +48,7 @@ requirements.txt                   # text file containing software dependencies
 
 # code examples
 examples/                          # folder of python scripts containing example uses of your software
-examples/plot_XX.py                # file illustrating some functionality of the package
+examples/plot_add_lists.py         # file illustrating some functionality of the package
 examples/README.txt                # can be empty, but required for sphinx to create example gallery
 
 # documentation
