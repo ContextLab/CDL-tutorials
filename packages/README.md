@@ -117,7 +117,7 @@ setup(
 These are the essential fields to set up a python package. There are additional arguments that can be added to this file.  For examples, see [here](https://github.com/ContextLab/CDL-tutorials/blob/package-updates/packages/example_package/setup.py) and [here](https://github.com/kennethreitz/setup.py).
 
 ### requirements.txt
-This file contains all the software dependencies for your project. Each line should be a different pip installable package.  To specify particular versions, use the syntax: `hypertools==0.5.1`. An example can be seen [here](https://github.com/ContextLab/CDL-tutorials/blob/package-updates/packages/example_package/requirements.txt)
+This file contains all the software dependencies for your project. Each line should be a different pip installable package.  To specify particular versions, use the syntax: `hypertools==0.5.1`. An example can be seen [here](https://github.com/ContextLab/CDL-tutorials/blob/package-updates/packages/example_package/requirements.txt).
 
 ## Code
 The code for your software project should go in a folder named with the name of the project.  In this example, the folder is `cdl` and it contains 3 files: `__init__.py`, `core.py` and `helpers.py`.  While package organization can vary dramatically as function of the project scope/complexity, there are some general organizational principles that will make it easier to maintain. There is also some fundamental structure you must follow in order for Python to recognize the code a package. The general structure of a very simple package should look something like this:
@@ -157,7 +157,7 @@ To import code from another folder, at the top of your `folder1_core.py` file:
 from ..folder2.folder2_core import <name-of-function>
 ```
 
-For a full treatment of good coding principles, see [Jeremy's tutorial](https://github.com/ContextLab/CDL-tutorials/blob/master/coding/slides/coding_tips.pdf)
+For a full treatment of good coding principles, see [Jeremy's tutorial](https://github.com/ContextLab/CDL-tutorials/blob/master/coding/slides/coding_tips.pdf) and for more on packages see [here](https://docs.python.org/3/tutorial/modules.html#packages) and [here](http://mikegrouchy.com/blog/2012/05/be-pythonic-__init__py.html).
 
 ### `__init__.py`
 This is a special file that tells Python to recognize a folder as part of your package. For every code folder in your package, you must include an `__init__.py` file if you want it included in the package.  It can be empty, or it can contain "initialization" code for the particular code module.
