@@ -1,5 +1,5 @@
 # CDL python package tutorial
-This tutorial shows how to create a CDL-approved python package and how to generate documentation using sphinx.
+This tutorial shows how to create a CDL-approved python package, organize the code, write examples, tutorials, documentation and tests.
 
 # Table of contents
 - [Getting started](#getting-started)
@@ -120,7 +120,44 @@ These are the essential fields to set up a python package. There are additional 
 This file contains all the software dependencies for your project. Each line should be a different pip installable package.  To specify particular versions, use the syntax: `hypertools==0.5.1`. An example can be seen [here](https://github.com/ContextLab/CDL-tutorials/blob/package-updates/packages/example_package/requirements.txt)
 
 ## Code
-The code for your software project should go in a folder named with the name of the project.  In this example, the folder is `cdl` and it contains 3 files: `__init__.py`, `core.py` and `helpers.py`.  While package organization can vary dramatically as function of the project scope/complexity, there are some general organizational principles that will make it easier to maintain. There is also some fundamental structure you must follow in order for Python to recognize the code a package.
+The code for your software project should go in a folder named with the name of the project.  In this example, the folder is `cdl` and it contains 3 files: `__init__.py`, `core.py` and `helpers.py`.  While package organization can vary dramatically as function of the project scope/complexity, there are some general organizational principles that will make it easier to maintain. There is also some fundamental structure you must follow in order for Python to recognize the code a package. The general structure of a very simple package should look something like this:
+
+```
+cdl
+└── __init__.py : initializes the package
+└── core.py : main code
+└── helpers.py : helper code
+```
+
+For packages with more complex functionality, the organization might look something like this:
+
+```
+cdl
+└── __init__.py : initializes the package
+└── folder1 : contains code for some functionality
+    ├── __init__.py : initializes the folder1 module
+    └── folder1_core.py : main code for folder1 functionality
+    └── folder1_helpers.py : helper code for folder1 functionality
+└── folder2 : contains code for some other functionality
+    ├── __init__.py : initializes the folder2 module
+    └── folder2_core.py : main code for folder2 functionality
+    └── folder2_helpers.py : helper code for folder2 functionality
+```
+
+### Code organization
+As the project grows in complexity, organization becomes essential. CDL-approved packages generally follow a "modular" structure.  That is, functions that are similar in objective are grouped together. For example in the folders above, `folder1` might contain all code related to plotting whereas `folder2` code contain all code related to data analysis. Another principle we follow is to write everything once and reuse. You might be wondering, "What if I need the same functionality in two difference scripts"? The answer is to write the function once and then import it wherever you need it.  For example, if you needed some functionality from `folder1_helpers.py` in `folder1_core.py`, at the top of your `folder1_core.py` script you would write:
+
+```
+from .folder1_helpers import <name-of-function>
+```
+
+To import code from another folder, at the top of your `folder1_core.py` file:
+
+```
+from ..folder2.folder2_core import <name-of-function>
+```
+
+For a full treatment of good coding principles, see [Jeremy's tutorial](https://github.com/ContextLab/CDL-tutorials/blob/master/coding/slides/coding_tips.pdf)
 
 ### `__init__.py`
 This is a special file that tells Python to recognize a folder as part of your package. For every code folder in your package, you must include an `__init__.py` file if you want it included in the package.  It can be empty, or it can contain "initialization" code for the particular code module.
