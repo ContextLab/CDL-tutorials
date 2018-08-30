@@ -4,3 +4,5 @@ packages/cdl.egg-info/*
 packages/docs/_build/*
 packages/docs/auto_examples/*
 packages/docs/cdl.*
+packages/.pytest_cache
+packages/tests/__pycache__
