@@ -27,7 +27,7 @@ This tutorial shows how to create a CDL-approved python package, organize the co
   * [`py.test`](#pytest)
   * [Travis CI](#travisci)
 - [Releases](#releases)
-- [Pushing to pip](#pip)
+- [Pushing to pip](#pushing-to-pip)
 
 ## Getting started
 1. Pull latest from CDL-tutorials repo
@@ -44,6 +44,7 @@ setup.py                           # python package config file
 requirements.txt                   # text file containing software dependencies
 .travis.yml                        # config file to set up travis (automated testing)
 MANIFEST.in                        # tells pip what folders to include in package
+pypirc                             # template for pushing to pip (not required for packages)
 
 # code
 <name of package>/__init__.py      # file indicating that this folder is a module
@@ -229,7 +230,7 @@ In the CDL, we use `sphinx`, a package that helps to create awesome documentatio
 This is the primary configuration file for a `sphinx` website. It is located in `docs/conf.py`.  This file can be generated from scratch using `sphinx-quickstart`, but for most cases you can simply copy this file and replace the relevant fields. This file is heavily commented, so take a look for details. To customize this file for your project, follow these instructions:
 
 1. replace line 60 with the name of your project
-2. replace lines 69 and 71 with the version of your software. If it's a new project start with `0.1.0`. We follow a release guideline called [semantic versioning](https://semver.org/). The basic idea is that releases with only minor bug fixes, patches, typo fixes etc. will advance the rightmost number (`0.1.0 -> 0.1.1`). Major changes like API changes and feature additions advance the middle number (`0.1.0 -> 0.2.0`).  When you are confident that there are no major bugs and importantly the API is __fixed__ and stable, then it is time for a major release (`0.1.0 -> 1.0.0`). Note: It is __bad form__ to change the API after a major release.  Thus, any changes to the API would require anoter major release (`1.0.0 -> 2.0.0`), so __do not__ do this prematurely.  For some context, at the time of writing this `seaborn` is about 5 years old and just recently released version `0.9.0` (i.e. it hasn't yet hit a major release). For all releases `<1.0.0` it is totally fine to change the API (but be kind to your users, nobody likes a moving target).
+2. replace lines 69 and 71 with the version of your software. (see Release section for details)
 3. replace line 119 and 129 with the link to the software (e.g. https://github.com/ContextLab/hypertools)
 4. replace `cdl` in lines 139, 166, 187-88 with the name of your software (e.g. hypertools)
 
@@ -321,3 +322,61 @@ script: py.test                                       # how to run the tests
 There are many more optional specifications which you can read about [here](https://docs.travis-ci.com/user/getting-started/). You can also tell travis to send its results to slack upon completion.  Instructions for that are [here](https://docs.travis-ci.com/user/notifications/).
 
 To setup the Travis service, go to their [website](https://travis-ci.com/), and sign in with your github credentials.  Your public repos will show up, and you can turn on the service for them.
+
+## Releases
+If you've followed the tutorial up until this point, you should be just about ready to push your code to `pip`. One last important piece of the puzzle is to create a release. A release is a version of an code/application that is published. It should be well documented, tested, bug-free (to your knowledge and as best as possible) and polished. Each release of the code should be accompanied by "release notes" which document what has changed from the previous release. For an example, see [here](https://github.com/ContextLab/hypertools/releases). Releases should conform to [this](https://semver.org/) semantic versioning guideline (2.0.0 at the time of writing this). For all the details, follow the link above, but here is a brief summary:
+
+If it's a new project start with 0.1.0. Releases with only minor bug fixes, patches, typo fixes etc. will advance the rightmost number (0.1.0 -> 0.1.1). Major changes like API changes and feature additions advance the middle number (0.1.0 -> 0.2.0). When you are confident that there are no major bugs and importantly the API is fixed and stable, then it is time for a major release (0.1.0 -> 1.0.0). Note: It is bad form to change the API after a major release. Thus, any changes to the API would require anoter major release (1.0.0 -> 2.0.0), so do not do this prematurely. For some context, at the time of writing this seaborn is about 5 years old and just recently released version 0.9.0 (i.e. it hasn't yet hit a major release). For all releases <1.0.0 it is totally fine to change the API (but be kind to your users, nobody likes a moving target).
+
+When your code is ready to be published, follow these instructions:
+1. click the "Releases" on your code's github repo
+2. click "Draft a new release".  
+3. Fill in the tag (use the format vX.X.X e.g. v0.5.1).  
+4. Add a title (I usually list the version followed by the month and year of release e.g. v0.5.1 (August 2018)
+5. Create an __exhaustive__ list of what has changed including new features, API changes and bug fixes. This is incredibly useful to your users, notifying them (and yourself) of what has changed in the software. [Seaborn](https://github.com/mwaskom/seaborn/releases) does a really nice job of this, so check their releases out for an example of high-quality and informative release notes. Instead of compiling this at the end, it is easiest if you keep a list of changes as you work on the code.
+
+Once you are satisfied with the release notes, it's time to create the release.  You should plan to create the release on github and pip at the same time.
+
+## Pushing to `pip`
+This is the final step.  `pip` is a public server for python packages.  It allows your software to be installable like so: `pip install cdl`. All of the code on pip can be downloaded by anyone, so make sure your software is awesome before pushing to `pip`.  When you are ready, follow the instructions below:
+
+### Register with PyPi:
+First you need to either register or log in to [PyPi](https://pypi.org/) and [test PyPi](https://test.pypi.org/). Using a text editor, create/open up a `~/.pypirc ` file and add the code found in the pypirc file, replacing the credentials with yours.  __NOTE:__ do not share your credentials, or upload them to pip!
+
+### Install Twine
+`pip install twine`
+
+### Tar your project
+In your project directory run:
+`python setup.py sdist`
+This should create a `.tar.gz` package of your source files within a new subfolder called dist/.
+
+### Draft a new release
+You'll also need to add this tarball under the release notes.
+Make sure to document all changes that occurred between releases.
+
+### Create a test upload:
+`twine upload -r test dist/PACKAGENAME-VERSION.tar.gz`
+
+### Create a test install:
+Create a virtual environment:
+
+`virtualenv MY_VIRTUALENV`
+
+` cd MY_VIRTUALENV`
+
+`source bin/activate`
+
+`pip install -i https://testpypi.python.org/pypi PACKAGENAME`
+
+And make sure your package is installed.
+
+### Upload for REALS
+`twine upload dist/PACKAGENAME-VERSION.tar.gz`
+
+And check that you can install it:
+`pip install PACKAGENAME`
+
+If you get stuck, [this](https://tom-christie.github.io/articles/pypi/) is a great link.
+
+Fin
