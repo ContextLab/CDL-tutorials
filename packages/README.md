@@ -42,6 +42,8 @@ LICENSE                            # license file (typically MIT)
 CONTRIBUTING.md                    # file containing instructions for contributing
 setup.py                           # python package config file
 requirements.txt                   # text file containing software dependencies
+.travis.yml                        # config file to set up travis (automated testing)
+MANIFEST.in                        # tells pip what folders to include in package
 
 # code
 <name of package>/__init__.py      # file indicating that this folder is a module
@@ -292,3 +294,30 @@ A few tips for writing good tests:
 -__Write tests as you code__. Each time you write a function, you should also write a test function. Otherwise, you will be faced with a massive task of writing all your tests at once.  The quality of the tests will inevitably be worse, and it will take longer because you will have to remind yourself of what each function does. Some folks will even write the tests before they write the function, which forces you to think about the API before diving into the guts of the code.
 
 For more information on writing tests, see [here](https://docs.python-guide.org/writing/tests/#py-test).
+
+### TravisCI
+TravisCI is a service that automatically runs your test each time you push your code to Github.  In addition, you can test your software on multiple versions of your programming language (e.g. python 2 and 3) and send the results as a webhook (e.g. to slack). To set up travis, you will need to add a `.travis.yml` file to your repo. Here's what's inside:
+
+```
+language: python                                      # the programming language
+sudo: false                                           # turn off sudo
+python:                                               # versions of python to test
+- '2.7'
+- '3.5'
+- '3.6'
+install:                                              # install instructions
+- wget http://repo.continuum.io/miniconda/Miniconda-latest-Linux-x86_64.sh -O miniconda.sh
+- bash miniconda.sh -b -p $HOME/miniconda
+- export PATH="$HOME/miniconda/bin:$PATH"
+- hash -r
+- conda config --set always_yes yes --set changeps1 no
+- conda update -q conda
+- conda info -a
+- conda create -q -n testenv python=$TRAVIS_PYTHON_VERSION pip pytest
+- source activate testenv
+- python setup.py install
+script: py.test                                       # how to run the tests
+```
+There are many more optional specifications which you can read about [https://docs.travis-ci.com/user/getting-started/]. You can also tell travis to send its results to slack upon completion.  Instructions for that are [here](https://docs.travis-ci.com/user/notifications/)
+
+To setup the Travis service, go to their [website](https://travis-ci.com/), and sign in with your github credentials.  Your public repos will show up, and you can turn on the service for them.
