@@ -1,16 +1,5 @@
 # -*- coding: utf-8 -*-
+from cdl.helpers import add
 
-from .context import sample
-
-import unittest
-
-
-class BasicTestSuite(unittest.TestCase):
-    """Basic test cases."""
-
-    def test_absolute_truth_and_meaning(self):
-        assert True
-
-
-if __name__ == '__main__':
-    unittest.main()
+def test_add_two_numbers():
+    assert add(1, 1)==2

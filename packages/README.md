@@ -26,6 +26,8 @@ This tutorial shows how to create a CDL-approved python package, organize the co
 - [Tests](#tests)
   * [`py.test`](#pytest)
   * [Travis CI](#travisci)
+- [Releases](#releases)
+- [Pushing to pip](#pip)
 
 ## Getting started
 1. Pull latest from CDL-tutorials repo
@@ -268,3 +270,25 @@ If you've made it this far, syncing up to ReadtheDocs should be relatively painl
 You can check to see if everything worked by clicking "Builds".  If the one on top says "Passed", the website compiled correctly on ReadtheDocs.  If it says "Failed", click the build and it will give you some output useful for debugging. If this all works, then you are good to go!  Any time you change the code/documentation (e.g. pushing to github), the website will rebuild and any new changes will be updated on the website automatically.
 
 ## Tests
+Great tests are a crucial part of reliable software.  There are many benefits to writing great tests. First, tests assure that your functions are working as you expect them to. Second, they allow for a battery of checks each time you make a change. It's difficult to anticipate the downstream consequences of changing a particular function. Tests allow you to catch bugs as you develop instead of after the fact.  Third, they can be automated.  Using a service like TravisCI, it's possible to run tests each time you (or a new contributor to the project) submits a pull request.  In large projects, PRs are not even considered until they pass the tests.  This enforces a certain level of quality and overall, makes the code better. For example tests, check out the `tests/test_core.py` file
+
+### `pytest`
+`pytest` is the CDL-approved package for writing tests.  First, install the package (`pip install pytest`).  Then, create a folder in your package called `tests`. Finally, write the tests!  For example tests, check out the scripts in the `tests` folder. Once the tests are written, simply call `pytest` in terminal inside your package repo. If any of the tests do not pass, `pytest` will tell you the tests failed and show you where. Here's a very basic example:
+
+```
+def test_add_two_numbers():
+  a = 1
+  b = 2
+  assert add(a, b)==3
+```
+
+This test is written to see whether the `add` function is working properly.  The key part of this is the `assert` statement, which can be used to check for expected behavior. If `add(a, b)==3` is `False`, then this will trigger pytest to tell you that 1 of your tests has failed and give you details on why.
+
+
+A few tips for writing good tests:
+- __Make sure your are tests fast__. A good test will check the logic of a function as quickly and simply as possible. This will save time during development If you have a complicated function, it may be necessary to write a more complicated test.  Start simple and add only what you need to confirm that the function is working as expected.
+- __Name your tests intuitively__. This will speed up debugging.  If your function is called `add` and you are checking whether the code accurately adds two numbers, name the test `test_add_two_numbers`. If it fails when you run the tests, you'll immediately know what went wrong. __NOTE__: You must lead your function names with `test_` or they will not run.
+- __Separate your tests into multiple files__.  For simple packages this is not necessary, but as your code grows in complexity, maintaining multiple test scripts is a good way to organize things.  This also allows you to test specific modules of the code, which can save time.
+-__Write tests as you code__. Each time you write a function, you should also write a test function. Otherwise, you will be faced with a massive task of writing all your tests at once.  The quality of the tests will inevitably be worse, and it will take longer because you will have to remind yourself of what each function does. Some folks will even write the tests before they write the function, which forces you to think about the API before diving into the guts of the code.
+
+For more information on writing tests, see [here](https://docs.python-guide.org/writing/tests/#py-test).

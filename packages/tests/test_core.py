@@ -1,16 +1,8 @@
 # -*- coding: utf-8 -*-
 
-from .context import sample
+from cdl.core import add_lists
 
-import unittest
-
-
-class AdvancedTestSuite(unittest.TestCase):
-    """Advanced test cases."""
-
-    def test_thoughts(self):
-        self.assertIsNone(sample.hmm())
-
-
-if __name__ == '__main__':
-    unittest.main()
+def test_add_two_lists():
+    list1 = [1, 2]
+    list2 = [3, 4]
+    assert add_lists(list1, list2)==[4, 6]
