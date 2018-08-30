@@ -31,7 +31,7 @@ This tutorial shows how to create a CDL-approved python package, organize the co
 
 ## Getting started
 1. Pull latest from CDL-tutorials repo
-2. Navigate to the example_package folder and run `pip install -e .`. This will install an editable installation of the package so you can modify it.
+2. Navigate to the `CDL-tutorials/packages` folder and run `pip install -e .`. This will install an editable installation of the package so you can modify it.
 
 ## Basic structure of a project
 The basic structure for a CDL Python package looks like this:
