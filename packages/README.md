@@ -318,6 +318,6 @@ install:                                              # install instructions
 - python setup.py install
 script: py.test                                       # how to run the tests
 ```
-There are many more optional specifications which you can read about [https://docs.travis-ci.com/user/getting-started/]. You can also tell travis to send its results to slack upon completion.  Instructions for that are [here](https://docs.travis-ci.com/user/notifications/)
+There are many more optional specifications which you can read about [here](https://docs.travis-ci.com/user/getting-started/). You can also tell travis to send its results to slack upon completion.  Instructions for that are [here](https://docs.travis-ci.com/user/notifications/).
 
 To setup the Travis service, go to their [website](https://travis-ci.com/), and sign in with your github credentials.  Your public repos will show up, and you can turn on the service for them.
