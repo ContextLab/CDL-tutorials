@@ -17,6 +17,14 @@ Add lists
 
   cdl.add_lists
 
+Add arrays
+------------------
+
+.. autosummary::
+  :toctree:
+
+  cdl.add_arrays
+
 Add integers
 ------------------
 

@@ -12,6 +12,13 @@ with open('LICENSE') as f:
 with open('requirements.txt') as f:
     requirements = f.read().splitlines()
 
+with open('docs/doc_requirements.txt') as f:
+    doc_requirements = f.read().splitlines()
+
+EXTRAS_REQUIRE={
+    'dev': doc_requirements.extend(["pytest"]),
+}
+
 setup(
     name='cdl',
     version='0.1.0',
@@ -22,5 +29,6 @@ setup(
     url='https://www.context-lab.com',
     license=license,
     install_requires = requirements,
-    packages=find_packages(exclude=('tests', 'docs'))
+    packages=find_packages(exclude=('tests', 'docs')),
+    extras_require=EXTRAS_REQUIRE,
 )

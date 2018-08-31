@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# hypertools documentation build configuration file, created by
+# cdl documentation build configuration file, created by
 # sphinx-quickstart on Thu Feb  2 08:22:16 2017.
 #
 # This file is execfile()d with the current directory set to its

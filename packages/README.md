@@ -1,6 +1,8 @@
 # CDL python package tutorial
 This tutorial shows how to create a CDL-approved python package, organize the code, write examples, tutorials, documentation and tests.
 
+__NOTE:__ Use Python 3.5+ unless you have a very compelling reason to use Python 2.7. Because Python 2.7 support for some of the critical tools we rely on (e.g. Pandas, Numpy) is being phased out, the lab can no longer officially support any Python 2.7 tools or setups. The preferred approach is to make sure your package is compatible with Python 3.5+ (i.e. 3.5 and any stable releases subsequent to 3.5).
+
 # Table of contents
 - [Getting started](#getting-started)
 - [Basic structure](#basic-structure-of-a-project)
@@ -91,7 +93,7 @@ While often tedious to create, this is one of the most important files in a soft
 For examples of these README sections, please see the [hypertools](https://github.com/ContextLab/hypertools/blob/master/readme.md) README.
 
 ### LICENSE
-We typically use an open-source MIT for software.  Use [this](https://github.com/ContextLab/hypertools/blob/master/LICENSE) one unless there is a reason for the software not to be open-source.
+We typically use an open-source MIT license for software.  Use [this](https://github.com/ContextLab/hypertools/blob/master/LICENSE) one unless there is a reason for the software not to be open-source.
 
 ### CONTRIBUTING.md
 This section is critical for a successful open-source project. As the project grows, so will the number of people who'd like to contribute.  Having a guideline on how to contribute will save you (and contributors) a lot of time in the long run. For an example, see [here](https://github.com/ContextLab/hypertools/blob/master/CONTRIBUTING.md).
@@ -103,7 +105,6 @@ This file is required to tell python you want to create a python package. Below 
 
 from setuptools import setup, find_packages
 
-
 with open('README.md') as f:
     readme = f.read()
 
@@ -112,6 +113,13 @@ with open('LICENSE') as f:
 
 with open('requirements.txt') as f:
     requirements = f.read().splitlines()
+
+with open('docs/doc_requirements.txt') as f:
+    doc_requirements = f.read().splitlines()
+
+EXTRAS_REQUIRE={
+    'dev': doc_requirements.extend(["pytest"]),
+}
 
 setup(
     name='cdl',
@@ -123,13 +131,14 @@ setup(
     url='https://www.context-lab.com',
     license=license,
     install_requires = requirements,
-    packages=find_packages(exclude=('tests', 'docs'))
+    packages=find_packages(exclude=('tests', 'docs')),
+    extras_require=EXTRAS_REQUIRE,
 )
 ```
-These are the essential fields to set up a python package. There are additional arguments that can be added to this file.  For examples, see [here](https://github.com/ContextLab/CDL-tutorials/blob/package-updates/packages/example_package/setup.py) and [here](https://github.com/kennethreitz/setup.py).
+These are the essential fields to set up a python package. There are additional arguments that can be added to this file.  For examples, see [here](https://github.com/ContextLab/CDL-tutorials/blob/package-updates/packages/setup.py) and [here](https://github.com/kennethreitz/setup.py).
 
 ### requirements.txt
-This file contains all the software dependencies for your project. Each line should be a different pip installable package.  To specify particular versions, use the syntax: `hypertools==0.5.1`. An example can be seen [here](https://github.com/ContextLab/CDL-tutorials/blob/package-updates/packages/example_package/requirements.txt).
+This file contains all the software dependencies for your project. Each line should be a different pip installable package.  To specify particular versions, use the syntax: `hypertools==0.5.1`. An example can be seen [here](https://github.com/ContextLab/CDL-tutorials/blob/package-updates/packages/requirements.txt).
 
 ## Code
 The code for your software project should go in a folder named with the name of the project.  In this example, the folder is `cdl` and it contains 3 files: `__init__.py`, `core.py` and `helpers.py`.  While package organization can vary dramatically as function of the project scope/complexity, there are some general organizational principles that will make it easier to maintain. There is also some fundamental structure you must follow in order for Python to recognize the code a package. The general structure of a very simple package should look something like this:
@@ -248,7 +257,7 @@ This file serves as a template for your API documentation.  It's possible to set
 If you set up your docstrings correctly, that should be all you have to do.  When `sphinx` builds the website, these references will automatically be populated with your docstrings.  Note that this manual approach is easy enough for small projects but could be unsustainable for larger packages.  For larger packages, you'll want to learn how to use [sphinx-apidoc](http://www.sphinx-doc.org/en/master/man/sphinx-apidoc.html). For an example of an `api.rst` file, see [here](https://github.com/ContextLab/hypertools/blob/master/docs/api.rst).
 
 ### Tutorials
-While tedious, this is a crucial part of your documentation.  It provides a way for users to learn about the package how you intended it to be used.  In practice, writing these notebooks are also very useful for finding software bugs and testing whether your API makes sense in the "wild". These tutorials can be written as a jupyter notebook (located in `docs/tutorial`) and then converted to `.rst` format with a script that I shamelessly stole from `seaborn` (located here: `docs/tutorial/tools/nb_to_doc.py`). For an example notebook see [here](https://github.com/ContextLab/hypertools/blob/master/docs/tutorials/plot.ipynb). After writing the tutorial from `docs/tutorial`, edit the `docs/tutorial/Makefile` to refer to each of you tutorial notebooks ([example](https://github.com/ContextLab/hypertools/blob/master/docs/tutorials/Makefile)). The, in the terminal run: `make notebooks`.  If this is successful, the output should be a `.rst` file with the same name as your notebook (and no error messages in the console). These `.rst` files will comprise the tutorials section of your documentation website. __NOTE:__ This must be run prior to generating the documentation.
+While tedious, this is a crucial part of your documentation.  It provides a way for users to learn about the package how you intended it to be used.  In practice, writing these notebooks are also very useful for finding software bugs and testing whether your API makes sense in the "wild". These tutorials can be written as a jupyter notebook (located in `docs/tutorial`) and then converted to `.rst` format with a script that I shamelessly stole from `seaborn` (located here: `docs/tutorial/tools/nb_to_doc.py`). For an example notebook see [here](https://github.com/ContextLab/hypertools/blob/master/docs/tutorials/plot.ipynb). After writing the tutorial from `docs/tutorial`, edit the `docs/tutorial/Makefile` to refer to each of you tutorial notebooks ([example](https://github.com/ContextLab/hypertools/blob/master/docs/tutorials/Makefile)). Then, in the terminal run: `make notebooks`.  If this is successful, the output should be a `.rst` file with the same name as your notebook (and no error messages in the console). These `.rst` files will comprise the tutorials section of your documentation website. __NOTE:__ This must be run prior to generating the documentation.
 
 ### `tutorials.rst`
 This file is used to specify the table of contents for your tutorials.  It is located in `docs/tutorial.rst`. Edit it for you own use by:
@@ -297,13 +306,12 @@ A few tips for writing good tests:
 For more information on writing tests, see [here](https://docs.python-guide.org/writing/tests/#py-test).
 
 ### TravisCI
-TravisCI is a service that automatically runs your test each time you push your code to Github.  In addition, you can test your software on multiple versions of your programming language (e.g. python 2 and 3) and send the results as a webhook (e.g. to slack). To set up travis, you will need to add a `.travis.yml` file to your repo. Here's what's inside:
+TravisCI is a service that automatically runs your test each time you push your code to Github.  In addition, you can test your software on multiple versions of your programming language (e.g. python 3.5+) and send the results as a webhook (e.g. to slack). To set up travis, you will need to add a `.travis.yml` file to your repo. Here's what's inside:
 
 ```
 language: python                                      # the programming language
 sudo: false                                           # turn off sudo
 python:                                               # versions of python to test
-- '2.7'
 - '3.5'
 - '3.6'
 install:                                              # install instructions
@@ -323,8 +331,10 @@ There are many more optional specifications which you can read about [here](http
 
 To setup the Travis service, go to their [website](https://travis-ci.com/), and sign in with your github credentials.  Your public repos will show up, and you can turn on the service for them.
 
+You can also embed a "badge" on the README that will update based on the status of your software (either passed or failed). For instructions on how to set this up, see [here](https://docs.travis-ci.com/user/status-images/).
+
 ## Releases
-If you've followed the tutorial up until this point, you should be just about ready to push your code to `pip`. One last important piece of the puzzle is to create a release. A release is a version of an code/application that is published. It should be well documented, tested, bug-free (to your knowledge and as best as possible) and polished. Each release of the code should be accompanied by "release notes" which document what has changed from the previous release. For an example, see [here](https://github.com/ContextLab/hypertools/releases). Releases should conform to [this](https://semver.org/) semantic versioning guideline (2.0.0 at the time of writing this). For all the details, follow the link above, but here is a brief summary:
+If you've followed the tutorial up until this point, you should be just about ready to push your code to `pip`. One last important piece of the puzzle is to create a release. A release is a version of an code/application that is published. It should be well documented, tested, bug-free (to your knowledge and as best as possible) and polished. Each release of the code should be accompanied by "release notes" which document what has changed from the previous release. For an example, see [here](https://github.com/ContextLab/hypertools/releases). Releases should conform to [this](https://semver.org/) semantic versioning guideline (guideline was 2.0.0 at the time of writing this). For all the details, follow the link above, but here is a brief summary:
 
 If it's a new project start with 0.1.0. Releases with only minor bug fixes, patches, typo fixes etc. will advance the rightmost number (0.1.0 -> 0.1.1). Major changes like API changes and feature additions advance the middle number (0.1.0 -> 0.2.0). When you are confident that there are no major bugs and importantly the API is fixed and stable, then it is time for a major release (0.1.0 -> 1.0.0). Note: It is bad form to change the API after a major release. Thus, any changes to the API would require anoter major release (1.0.0 -> 2.0.0), so do not do this prematurely. For some context, at the time of writing this seaborn is about 5 years old and just recently released version 0.9.0 (i.e. it hasn't yet hit a major release). For all releases <1.0.0 it is totally fine to change the API (but be kind to your users, nobody likes a moving target).
 
@@ -379,4 +389,4 @@ And check that you can install it:
 
 If you get stuck, [this](https://tom-christie.github.io/articles/pypi/) is a great link.
 
-Fin
+_Fin_

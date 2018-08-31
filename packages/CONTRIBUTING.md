@@ -1,10 +1,10 @@
-# Contributing to HyperTools
+# Contributing to CDL-package
 
-Thank you for your interest in contributing to HyperTools :tada:!
+Thank you for your interest in contributing to CDL-package :tada:!
 
-HyperTools is designed to facilitate dimensionality reduction-based visual explorations of high-dimensional data. The basic pipeline is to feed in a high-dimensional dataset (or a series of high-dimensional datasets) and, in a single function call, reduce the dimensionality of the dataset(s) and create a plot. The package is built atop many familiar friends, including matplotlib, scikit-learn and seaborn.
+CDL-package is <describe the project briefly>
 
-This documents is a set of guidelines for contributing to HyperTools on GitHub. These are guidelines, not rules. This guide is meant to make it easy for you to get involved. Before contributing, it is important to read over this page because it will help you understand the problem that this toolbox tries to solve, our future vision for the project, and what we kinds of contributions (we think) would be most useful.
+This documents is a set of guidelines for contributing to CDL-package on GitHub. These are guidelines, not rules. This guide is meant to make it easy for you to get involved. Before contributing, it is important to read over this page because it will help you understand the problem that this toolbox tries to solve, our future vision for the project, and what we kinds of contributions (we think) would be most useful.
 
 
 * [Participation guidelines](#participation-guidelines)
@@ -19,7 +19,7 @@ This project adheres to a [code of conduct](https://www.mozilla.org/en-US/about/
 
 ## What we're working on
 
-Take a look at the issues in our [ milestone](https://github.com/ContextLab/hypertools/milestone/5) for the mozsprint!
+Take a look at the issues in our [ milestone](<link to issues>)!
 
 ## How to submit changes
 
@@ -33,7 +33,7 @@ First time contributing to open source? Check out this *free* series, [How to Co
 
 ## How to report bugs
 
-If you are reporting a bug, please submit it to our [issue tracker](https://github.com/ContextLab/hypertools/issues). Please do your best to include the following:
+If you are reporting a bug, please submit it to our [issue tracker](<link to issues>). Please do your best to include the following:
 
 1. A short, top-level summary of the bug. In most cases, this should be 1-2 sentences.
 2. A short, self-contained code snippet to reproduce the bug, ideally allowing a simple copy and paste to reproduce. Please do your best to reduce the code snippet to the minimum required.
@@ -42,4 +42,4 @@ If you are reporting a bug, please submit it to our [issue tracker](https://gith
 
 ## Communication channels
 
-Have questions? Want to join in on the discussion? Check out our [gitter](https://gitter.im/hypertools/Lobby).
+Have questions? Want to join in on the discussion? Check out our [gitter](<link to gitter>).
