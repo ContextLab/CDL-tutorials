@@ -1,6 +1,6 @@
 # Tutorials
 
-This is a repo containing useful tutorials on different packages the [Contextual Dynamics Lab](http://www.context-lab.com) uses most.  Each tutorial is contained in its own folder.
+This is a repo containing useful tutorials on different package and tools the [Contextual Dynamics Lab](http://www.context-lab.com) uses most.  Each tutorial is contained in its own folder.
 
 In general, our tutorials are intended to cultivate and facilitate a "science hacker mindset" and provide some of the tools needed to thrive in an open science hackerspace.  As a place to start, you might be interested in viewing [this video](https://www.youtube.com/watch?v=Gin8_AITmS0), which introduces the science hacker mentality and provides an overview of many of the approaches we use in the lab.
 
