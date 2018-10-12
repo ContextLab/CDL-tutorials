@@ -41,6 +41,8 @@ Our science is made better through the hard work and dedication of the science c
 ### Proposing new tutorial topics or other suggestions
 If you have a new tutorial idea or suggestion, please post an [GitHub issue](https://github.com/ContextLab/CDL-tutorials/issues) with your suggested change or addition.  That will give everyone an opportunity to weigh in on and discuss your proposal.  This is especially important prior to putting in efforts to substantially modify existing content (e.g. to avoid wasted effort).  Please check through the existing issues list to make sure that your idea hasn't already been proposed, and to get a sense of which issues are being actively worked on (and who is working on them).  You may also want to add comments to existing issues to help clarify or add to an existing idea.
 
+We track all tutorial ideas through [this project board](https://github.com/ContextLab/CDL-tutorials/projects/1).  To add your issue to the backlog, select the "Tutorials" project from the project dropdown list when you create the issue or edit the issue details.  You can add any additional thoughts, commentary, arguments for prioritizing the given tutorial, offers to work on the given tutorial, etc. via the issue comments.
+
 ### Modifying existing content
 To contribute by adding, subtracting, or modifying the existing content, please:
 - fork this repository
@@ -53,3 +55,6 @@ If you are contributing Python code, we prefer Python 3 and try to follow the [P
 We provide a sample suggested tutorial template [here](https://github.com/ContextLab/CDL-tutorials/tree/master/tutorial_template).  Your tutorial doesn't necessarily have to follow that format, but the example provides a general sense of the sorts of things we hope each tutorial will include.
 
 If you have your own tutorial ideas, feel free to start a new folder, add your stuff (potentially by modifying a copy of the tutorial template), and submit a pull request!
+
+## Questions? Comments? Concerns?
+[Let us know](http://www.context-lab.com/contact/)! We love to hear how the community is using our work and how we can make it better! 
