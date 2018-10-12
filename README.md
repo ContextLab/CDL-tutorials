@@ -53,10 +53,3 @@ If you are contributing Python code, we prefer Python 3 and try to follow the [P
 We provide a sample suggested tutorial template [here](https://github.com/ContextLab/CDL-tutorials/tree/master/tutorial_template).  Your tutorial doesn't necessarily have to follow that format, but the example provides a general sense of the sorts of things we hope each tutorial will include.
 
 If you have your own tutorial ideas, feel free to start a new folder, add your stuff (potentially by modifying a copy of the tutorial template), and submit a pull request!
-
-
-Many of the packages we are making tutorials of are only possible due to open science and communication between programmers and aspirating developers. We hope that by creating these tutorials we make others more comfortable with these topics as well! If you noticed that you learn a different way than us or have an excellent example to share, please share it! 
-
-We ask that you fork first, make your changes and then submit a pull request. Instructions on how to do that [here](https://gist.github.com/Chaser324/ce0505fbed06b947d962). We also request that you program in python 3 and follow the [pep8 style](https://www.python.org/dev/peps/pep-0008/) when writing your code. We really appreciate the time you take doing this to make these tutorials better for others. 
-
-For a ful list of the packages we are working on and tutorials we are lookign to have in the future see our projects board [here.](https://github.com/ContextLab/Tutorials/projects/1?)
