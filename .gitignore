@@ -8,3 +8,5 @@ packages/.pytest_cache
 packages/tests/__pycache__
 packages/cdl/__pycache__
 *.pyc
+.DS_Store
+
