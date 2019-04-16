@@ -13,3 +13,8 @@ It is recommended that PyStan be installed using conda on Linux or Mac, as Stan 
 2. Then, create an environment with `conda create -n stan python`
 3. Install PyStan with `conda install pystan`
 4. If this doesn't work, try reinstalling Cython or Numpy, or resetting your conda env
+
+## Play with Stan!
+
+Run the notebook in Jupyter! Using the example as a template, generate some data and try to fit some different models.
+Change hyperparameters, spice it up.
