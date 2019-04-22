@@ -15,7 +15,7 @@ It is recommended that PyStan be installed using conda on Linux or Mac, as Stan 
 3. Install PyStan with `conda install pystan`
 4. If this doesn't work, try reinstalling Cython or Numpy, or resetting your conda env
 
-# Alternatively, you can use the Docker container
+### Alternatively, you can use the Docker container
 
 1. Install Docker on your computer using the appropriate guide below:
     - [OSX](https://docs.docker.com/docker-for-mac/install/#download-docker-for-mac)
