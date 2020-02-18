@@ -4,7 +4,6 @@ It includes the notebook "Intro_to_pytorch.ipynb" with links to helpful blogs, v
 
 To be able to run through the notebook in the tutorial, first install the requirements using `pip install -r requirements.txt`
 
-# To run the tutorials, you will need to have pytorch installed. You can use the command `pip3 install torch torchvision` to install pytorch in python 3 using pip.
 
 
 
